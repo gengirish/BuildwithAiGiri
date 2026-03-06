@@ -39,6 +39,11 @@ yarn-error.log*
 /playwright-report/
 /test-results/
 
+# python
+.venv/
+__pycache__/
+*.pyc
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
