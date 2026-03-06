@@ -7,6 +7,10 @@ export async function GET() {
   try {
     const supabase = getServiceClient();
 
+    if (!supabase) {
+      return NextResponse.json([]);
+    }
+
     const { data, error } = await supabase
       .from("projects")
       .select("*")

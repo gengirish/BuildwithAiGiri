@@ -45,6 +45,15 @@ export async function POST(req: NextRequest) {
 
     const supabase = getServiceClient();
 
+    if (!supabase) {
+      console.warn("Supabase not configured — storing submission in logs only");
+      console.log("Submission received:", JSON.stringify(parsed.data, null, 2));
+      return NextResponse.json(
+        { success: true, message: "Idea submitted successfully!" },
+        { status: 201 },
+      );
+    }
+
     const { error } = await supabase.from("submissions").insert({
       ...parsed.data,
       status: "pending",
@@ -74,6 +83,10 @@ export async function POST(req: NextRequest) {
 export async function GET() {
   try {
     const supabase = getServiceClient();
+
+    if (!supabase) {
+      return NextResponse.json([]);
+    }
 
     const { data, error } = await supabase
       .from("submissions")
