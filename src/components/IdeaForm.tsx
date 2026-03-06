@@ -1,11 +1,13 @@
 "use client";
 
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
 import { submissionSchema, type SubmissionFormData } from "@/lib/validations";
 import { cn } from "@/lib/utils";
+import { SubmissionSuccess } from "./SubmissionSuccess";
 
 const roles = [
   "Founder",
@@ -60,6 +62,11 @@ const inputClass = cn(
 );
 
 export function IdeaForm() {
+  const [submitted, setSubmitted] = useState<{
+    name: string;
+    ideaTitle: string;
+  } | null>(null);
+
   const {
     register,
     handleSubmit,
@@ -83,13 +90,21 @@ export function IdeaForm() {
         return;
       }
 
-      toast.success(
-        "Your idea has been submitted! We'll review it and get back to you soon.",
-      );
+      setSubmitted({ name: data.full_name, ideaTitle: data.idea_title });
       reset();
     } catch {
       toast.error("Something went wrong. Please try again later.");
     }
+  }
+
+  if (submitted) {
+    return (
+      <SubmissionSuccess
+        name={submitted.name}
+        ideaTitle={submitted.ideaTitle}
+        onSubmitAnother={() => setSubmitted(null)}
+      />
+    );
   }
 
   return (

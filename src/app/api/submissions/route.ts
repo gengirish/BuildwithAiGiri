@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { submissionSchema } from "@/lib/validations";
 import { getServiceClient } from "@/lib/supabase";
+import { sendSubmissionConfirmation } from "@/lib/email-service";
 
 export const dynamic = "force-dynamic";
 
@@ -48,6 +49,13 @@ export async function POST(req: NextRequest) {
     if (!supabase) {
       console.warn("Supabase not configured — storing submission in logs only");
       console.log("Submission received:", JSON.stringify(parsed.data, null, 2));
+
+      sendSubmissionConfirmation({
+        email: parsed.data.email,
+        full_name: parsed.data.full_name,
+        idea_title: parsed.data.idea_title,
+      }).catch((err) => console.error("Email send failed:", err));
+
       return NextResponse.json(
         { success: true, message: "Idea submitted successfully!" },
         { status: 201 },
@@ -66,6 +74,12 @@ export async function POST(req: NextRequest) {
         { status: 500 },
       );
     }
+
+    sendSubmissionConfirmation({
+      email: parsed.data.email,
+      full_name: parsed.data.full_name,
+      idea_title: parsed.data.idea_title,
+    }).catch((err) => console.error("Email send failed:", err));
 
     return NextResponse.json(
       { success: true, message: "Idea submitted successfully!" },
