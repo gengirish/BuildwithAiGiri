@@ -139,9 +139,9 @@ export function IdeaForm() {
       <div className="grid gap-6 sm:grid-cols-2">
         <FormField label="Your Role" id="role" error={errors.role?.message} required>
           <select id="role" {...register("role")} className={inputClass}>
-            <option value="">Select your role</option>
+            <option value="" className="bg-zinc-900 text-gray-400">Select your role</option>
             {roles.map((r) => (
-              <option key={r} value={r}>
+              <option key={r} value={r} className="bg-zinc-900 text-white">
                 {r}
               </option>
             ))}
@@ -204,9 +204,9 @@ export function IdeaForm() {
           error={errors.business_model?.message}
         >
           <select id="business_model" {...register("business_model")} className={inputClass}>
-            <option value="">Select a model (optional)</option>
+            <option value="" className="bg-zinc-900 text-gray-400">Select a model (optional)</option>
             {businessModels.map((m) => (
-              <option key={m} value={m}>
+              <option key={m} value={m} className="bg-zinc-900 text-white">
                 {m}
               </option>
             ))}

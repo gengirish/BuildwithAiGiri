@@ -24,7 +24,7 @@ function AnimatedNumber({ target }: { target: number }) {
 }
 
 export function WeekCounter() {
-  const currentWeek = 1;
+  const currentWeek = 0;
   const totalWeeks = 25;
 
   const stats = [
