@@ -70,7 +70,7 @@ export default function RootLayout({
         name: "Girish Hiremath",
         url: "https://girishbhiremath.vercel.app",
         sameAs: [
-          "https://www.linkedin.com/in/girishbhiremath/",
+          "https://www.linkedin.com/in/girish-b-hiremath/",
           "https://github.com/gengirish",
         ],
         jobTitle: "Software Architect",

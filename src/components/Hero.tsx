@@ -73,7 +73,7 @@ export function Hero() {
             </div>
             <div className="flex items-center gap-1.5 ml-2 border-l border-white/10 pl-3">
               <a
-                href="https://www.linkedin.com/in/girishbhiremath/"
+                href="https://www.linkedin.com/in/girish-b-hiremath/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-cyan-400 transition-colors"

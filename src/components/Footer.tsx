@@ -77,7 +77,7 @@ export function Footer() {
               {[
                 {
                   icon: Linkedin,
-                  href: "https://www.linkedin.com/in/girishbhiremath/",
+                  href: "https://www.linkedin.com/in/girish-b-hiremath/",
                   label: "LinkedIn",
                 },
                 {

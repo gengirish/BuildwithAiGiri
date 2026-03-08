@@ -7,7 +7,7 @@ const socials = [
   {
     icon: Linkedin,
     label: "Follow on LinkedIn",
-    href: "https://www.linkedin.com/in/girishbhiremath/",
+    href: "https://www.linkedin.com/in/girish-b-hiremath/",
     color: "hover:bg-blue-600/20 hover:border-blue-500/30 hover:text-blue-400",
   },
   {
