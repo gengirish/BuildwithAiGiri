@@ -2,10 +2,68 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowLeft, Rocket } from "lucide-react";
+import { ArrowLeft, Rocket, Calendar, Clock, Sparkles } from "lucide-react";
 import Link from "next/link";
 import { ProjectCard } from "@/components/ProjectCard";
 import type { Project } from "@/types";
+
+const totalWeeks = 25;
+const currentWeek = 0;
+
+function WeekSlot({
+  week,
+  status,
+}: {
+  week: number;
+  status: "current" | "upcoming" | "done";
+}) {
+  return (
+    <div
+      className={`flex items-center gap-3 rounded-xl border p-4 transition-colors ${
+        status === "current"
+          ? "border-cyan-500/30 bg-cyan-500/5"
+          : status === "done"
+            ? "border-green-500/20 bg-green-500/5"
+            : "border-white/5 bg-white/[0.02]"
+      }`}
+    >
+      <div
+        className={`flex h-9 w-9 items-center justify-center rounded-lg text-sm font-bold font-[var(--font-space)] ${
+          status === "current"
+            ? "bg-cyan-500/20 text-cyan-400"
+            : status === "done"
+              ? "bg-green-500/20 text-green-400"
+              : "bg-white/5 text-gray-600"
+        }`}
+      >
+        {week}
+      </div>
+      <div className="flex-1 min-w-0">
+        <p
+          className={`text-sm font-medium ${
+            status === "current"
+              ? "text-cyan-400"
+              : status === "done"
+                ? "text-green-400"
+                : "text-gray-500"
+          }`}
+        >
+          {status === "current"
+            ? "Accepting Ideas"
+            : status === "done"
+              ? "Completed"
+              : "Open Slot"}
+        </p>
+      </div>
+      {status === "current" && (
+        <span className="relative flex h-2.5 w-2.5">
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-75" />
+          <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-cyan-500" />
+        </span>
+      )}
+    </div>
+  );
+}
 
 export default function ShowcasePage() {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -65,27 +123,72 @@ export default function ShowcasePage() {
           </div>
         )}
 
-        {/* Empty state */}
+        {/* Empty / coming-soon state */}
         {!loading && projects.length === 0 && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="glass-card p-12 text-center"
+            className="space-y-8"
           >
-            <Rocket className="h-16 w-16 text-cyan-400/30 mx-auto mb-6" />
-            <h3 className="text-xl font-semibold text-white mb-3 font-[var(--font-space)]">
-              The Journey Begins Soon
-            </h3>
-            <p className="text-gray-400 max-w-md mx-auto mb-8">
-              Week 1 is underway! Projects will appear here as they&apos;re
-              completed. Check back soon to see the first MVP.
-            </p>
-            <Link
-              href="/submit"
-              className="inline-flex rounded-lg bg-cyan-500 px-6 py-3 font-semibold text-white hover:bg-cyan-400 transition-colors"
-            >
-              Submit Your Idea
-            </Link>
+            {/* Coming soon banner */}
+            <div className="glass-card p-8 sm:p-10 text-center">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 mb-6">
+                <Rocket className="h-8 w-8 text-cyan-400" />
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-3 font-[var(--font-space)]">
+                Coming Soon
+              </h3>
+              <p className="text-gray-400 max-w-md mx-auto mb-2">
+                The 25-week build journey is about to begin. Each week, a new
+                MVP will be showcased here with full details, tech stack, and
+                links.
+              </p>
+              <div className="inline-flex items-center gap-2 text-sm text-cyan-400 mt-2">
+                <Sparkles className="h-3.5 w-3.5" />
+                Week 0 — Accepting ideas now
+              </div>
+            </div>
+
+            {/* Timeline grid */}
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <Calendar className="h-4 w-4 text-gray-400" />
+                <h4 className="text-sm font-semibold text-gray-300">
+                  25-Week Roadmap
+                </h4>
+              </div>
+              <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+                {Array.from({ length: Math.min(totalWeeks, 9) }, (_, i) => (
+                  <WeekSlot
+                    key={i}
+                    week={i + 1}
+                    status={
+                      i + 1 <= currentWeek
+                        ? "done"
+                        : i + 1 === currentWeek + 1
+                          ? "current"
+                          : "upcoming"
+                    }
+                  />
+                ))}
+              </div>
+              <div className="mt-3 flex items-center gap-2 text-xs text-gray-600">
+                <Clock className="h-3 w-3" />
+                <span>
+                  + {totalWeeks - 9} more weeks to go
+                </span>
+              </div>
+            </div>
+
+            {/* Submit CTA */}
+            <div className="text-center pt-4">
+              <Link
+                href="/submit"
+                className="inline-flex rounded-xl bg-cyan-500 px-8 py-3.5 font-semibold text-white hover:bg-cyan-400 transition-colors glow-cyan glow-cyan-hover"
+              >
+                Submit Your Idea for Week 1
+              </Link>
+            </div>
           </motion.div>
         )}
 

@@ -46,11 +46,13 @@ const faqs = [
 function FAQItem({
   question,
   answer,
+  defaultOpen = false,
 }: {
   question: string;
   answer: string;
+  defaultOpen?: boolean;
 }) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(defaultOpen);
 
   return (
     <button
@@ -71,10 +73,10 @@ function FAQItem({
           )}
         />
       </div>
-      <AnimatePresence>
+      <AnimatePresence initial={defaultOpen}>
         {open && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
+            initial={defaultOpen ? false : { height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.2 }}
@@ -117,8 +119,8 @@ export function FAQ() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="space-y-3"
         >
-          {faqs.map((faq) => (
-            <FAQItem key={faq.question} {...faq} />
+          {faqs.map((faq, idx) => (
+            <FAQItem key={faq.question} {...faq} defaultOpen={idx === 0} />
           ))}
         </motion.div>
       </div>

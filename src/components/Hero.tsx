@@ -1,8 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, Github, Linkedin, Globe } from "lucide-react";
 import { WeekCounter } from "./WeekCounter";
 
 export function Hero() {
@@ -40,15 +41,68 @@ export function Hero() {
           </h1>
 
           {/* Sub-headline */}
-          <p className="mx-auto max-w-2xl text-lg sm:text-xl text-gray-400 leading-relaxed mb-8">
-            An experienced architect with 14+ years of building enterprise
-            solutions wants to build{" "}
-            <span className="text-white font-medium">your MVP</span> -- one idea,
-            one week, zero cost. Submit your idea and let&apos;s create something
+          <p className="mx-auto max-w-2xl text-lg sm:text-xl text-gray-400 leading-relaxed mb-6">
+            SaaS tools, AI-powered apps, dashboards, APIs -- an experienced
+            architect with 14+ years wants to build{" "}
+            <span className="text-white font-medium">your MVP</span> in one
+            week, at zero cost. Submit your idea and let&apos;s create something
             extraordinary.
           </p>
 
-          {/* Week counter */}
+          {/* Founder identity card */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="inline-flex items-center gap-3 rounded-full bg-white/5 border border-white/10 px-4 py-2 mb-8"
+          >
+            <Image
+              src="https://girishbhiremath.vercel.app/_next/image?url=%2Fprofile.jpg&w=256&q=75"
+              alt="Girish Hiremath"
+              width={36}
+              height={36}
+              className="rounded-full"
+            />
+            <div className="text-left">
+              <span className="text-sm font-medium text-white">
+                Girish Hiremath
+              </span>
+              <span className="text-xs text-gray-500 ml-2">
+                Software Architect &middot; 14+ yrs
+              </span>
+            </div>
+            <div className="flex items-center gap-1.5 ml-2 border-l border-white/10 pl-3">
+              <a
+                href="https://www.linkedin.com/in/girishbhiremath/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-cyan-400 transition-colors"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="h-4 w-4" />
+              </a>
+              <a
+                href="https://github.com/gengirish"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-cyan-400 transition-colors"
+                aria-label="GitHub"
+              >
+                <Github className="h-4 w-4" />
+              </a>
+              <a
+                href="https://girishbhiremath.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-cyan-400 transition-colors"
+                aria-label="Portfolio"
+              >
+                <Globe className="h-4 w-4" />
+              </a>
+            </div>
+          </motion.div>
+
+          {/* Week counter / progress bar */}
           <WeekCounter />
 
           {/* CTA buttons */}

@@ -1,60 +1,56 @@
 "use client";
 
-import { useRef, useEffect } from "react";
-import {
-  motion,
-  useInView,
-  useMotionValue,
-  useSpring,
-  useTransform,
-} from "framer-motion";
-
-function AnimatedNumber({ target }: { target: number }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-  const motionValue = useMotionValue(0);
-  const spring = useSpring(motionValue, { damping: 30, stiffness: 100 });
-  const display = useTransform(spring, (v) => Math.round(v));
-
-  useEffect(() => {
-    if (isInView) motionValue.set(target);
-  }, [isInView, target, motionValue]);
-
-  return <motion.span ref={ref}>{display}</motion.span>;
-}
+import { motion } from "framer-motion";
 
 export function WeekCounter() {
-  const currentWeek = 0;
-  const totalWeeks = 25;
-
-  const stats = [
-    { label: "Current Week", value: currentWeek, suffix: "" },
-    { label: "Total Weeks", value: totalWeeks, suffix: "" },
-    { label: "Ideas Received", value: 0, suffix: "+" },
-    { label: "MVPs Built", value: 0, suffix: "" },
-  ];
+  const currentWeek: number = 0;
+  const totalWeeks: number = 25;
+  const progress = (currentWeek / totalWeeks) * 100;
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.4 }}
-      className="mx-auto grid max-w-2xl grid-cols-2 sm:grid-cols-4 gap-4"
+      className="mx-auto max-w-xl"
     >
-      {stats.map((stat) => (
-        <div
-          key={stat.label}
-          className="glass-card p-4 text-center"
-        >
-          <div className="text-2xl sm:text-3xl font-bold text-cyan-400 font-[var(--font-space)]">
-            <AnimatedNumber target={stat.value} />
-            {stat.suffix}
-          </div>
-          <div className="mt-1 text-xs sm:text-sm text-gray-500">
-            {stat.label}
-          </div>
+      <div className="glass-card p-5">
+        <div className="flex items-center justify-between mb-3">
+          <span className="text-sm font-medium text-cyan-400">
+            Week {currentWeek} of {totalWeeks}
+          </span>
+          <span className="text-sm text-gray-400 font-medium">
+            Now Accepting Ideas
+          </span>
         </div>
-      ))}
+
+        {/* Progress bar */}
+        <div className="relative h-3 rounded-full bg-white/5 overflow-hidden">
+          <motion.div
+            initial={{ width: 0 }}
+            animate={{ width: `${Math.max(progress, 2)}%` }}
+            transition={{ delay: 0.6, duration: 1, ease: "easeOut" }}
+            className="absolute inset-y-0 left-0 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500"
+          />
+          {/* Pulse dot at the leading edge */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: [0.5, 1, 0.5] }}
+            transition={{ delay: 1.6, duration: 2, repeat: Infinity }}
+            className="absolute top-1/2 -translate-y-1/2 h-2 w-2 rounded-full bg-white"
+            style={{ left: `${Math.max(progress, 2)}%` }}
+          />
+        </div>
+
+        <div className="flex items-center justify-between mt-2">
+          <span className="text-xs text-gray-500">
+            {currentWeek} MVP{currentWeek !== 1 ? "s" : ""} shipped
+          </span>
+          <span className="text-xs text-gray-500">
+            {totalWeeks - currentWeek} weeks remaining
+          </span>
+        </div>
+      </div>
     </motion.div>
   );
 }

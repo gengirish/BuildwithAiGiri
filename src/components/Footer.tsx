@@ -1,5 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
-import { Rocket, Github, Twitter, Linkedin } from "lucide-react";
+import { Rocket, Github, Twitter, Linkedin, Globe } from "lucide-react";
 
 export function Footer() {
   return (
@@ -53,6 +54,7 @@ export function Footer() {
               {[
                 { href: "/#about", label: "About Giri" },
                 { href: "/#how-it-works", label: "The Process" },
+                { href: "/#criteria", label: "Selection Criteria" },
               ].map((link) => (
                 <li key={link.href}>
                   <Link
@@ -71,14 +73,27 @@ export function Footer() {
             <h4 className="text-sm font-semibold text-gray-300 mb-4">
               Connect
             </h4>
-            <div className="flex gap-3">
+            <div className="flex gap-3 mb-6">
               {[
-                { icon: Github, href: "https://github.com", label: "GitHub" },
-                { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
                 {
                   icon: Linkedin,
-                  href: "https://linkedin.com",
+                  href: "https://www.linkedin.com/in/girishbhiremath/",
                   label: "LinkedIn",
+                },
+                {
+                  icon: Github,
+                  href: "https://github.com/gengirish",
+                  label: "GitHub",
+                },
+                {
+                  icon: Twitter,
+                  href: "https://twitter.com",
+                  label: "Twitter",
+                },
+                {
+                  icon: Globe,
+                  href: "https://girishbhiremath.vercel.app",
+                  label: "Portfolio",
                 },
               ].map(({ icon: Icon, href, label }) => (
                 <a
@@ -92,6 +107,30 @@ export function Footer() {
                   <Icon className="h-4 w-4" />
                 </a>
               ))}
+            </div>
+
+            {/* Built by card */}
+            <div className="flex items-center gap-2.5 rounded-lg bg-white/[0.03] border border-white/5 p-2.5">
+              <Image
+                src="https://girishbhiremath.vercel.app/_next/image?url=%2Fprofile.jpg&w=256&q=75"
+                alt="Girish Hiremath"
+                width={28}
+                height={28}
+                className="rounded-full"
+              />
+              <div>
+                <p className="text-xs text-gray-400">
+                  Built by{" "}
+                  <a
+                    href="https://girishbhiremath.vercel.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white hover:text-cyan-400 transition-colors"
+                  >
+                    Girish Hiremath
+                  </a>
+                </p>
+              </div>
             </div>
           </div>
         </div>

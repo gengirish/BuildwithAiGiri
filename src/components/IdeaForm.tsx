@@ -34,12 +34,14 @@ function FormField({
   id,
   error,
   required,
+  hint,
   children,
 }: {
   label: string;
   id: string;
   error?: string;
   required?: boolean;
+  hint?: string;
   children: React.ReactNode;
 }) {
   return (
@@ -48,18 +50,24 @@ function FormField({
         {label}
         {required && <span className="text-cyan-400 ml-0.5">*</span>}
       </label>
+      {hint && (
+        <p className="text-xs text-gray-500 mb-2">{hint}</p>
+      )}
       {children}
       {error && <p className="mt-1.5 text-xs text-red-400">{error}</p>}
     </div>
   );
 }
 
-const inputClass = cn(
-  "w-full rounded-lg bg-white/5 border border-white/10 px-4 py-3",
-  "text-white placeholder-gray-600",
-  "focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 outline-none",
-  "transition-colors",
-);
+function inputClass(hasError: boolean) {
+  return cn(
+    "w-full rounded-lg bg-white/5 border px-4 py-3",
+    "text-white placeholder-gray-600",
+    "focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 outline-none",
+    "transition-colors",
+    hasError ? "border-red-500/50" : "border-white/10",
+  );
+}
 
 export function IdeaForm() {
   const [submitted, setSubmitted] = useState<{
@@ -120,7 +128,7 @@ export function IdeaForm() {
           <input
             id="full_name"
             {...register("full_name")}
-            className={inputClass}
+            className={inputClass(!!errors.full_name)}
             placeholder="Your full name"
           />
         </FormField>
@@ -129,7 +137,7 @@ export function IdeaForm() {
             id="email"
             {...register("email")}
             type="email"
-            className={inputClass}
+            className={inputClass(!!errors.email)}
             placeholder="you@example.com"
           />
         </FormField>
@@ -138,7 +146,7 @@ export function IdeaForm() {
       {/* Role and Company row */}
       <div className="grid gap-6 sm:grid-cols-2">
         <FormField label="Your Role" id="role" error={errors.role?.message} required>
-          <select id="role" {...register("role")} className={inputClass}>
+          <select id="role" {...register("role")} className={inputClass(!!errors.role)}>
             <option value="" className="bg-zinc-900 text-gray-400">Select your role</option>
             {roles.map((r) => (
               <option key={r} value={r} className="bg-zinc-900 text-white">
@@ -151,7 +159,7 @@ export function IdeaForm() {
           <input
             id="company"
             {...register("company")}
-            className={inputClass}
+            className={inputClass(!!errors.company)}
             placeholder="Optional"
           />
         </FormField>
@@ -167,7 +175,7 @@ export function IdeaForm() {
         <input
           id="idea_title"
           {...register("idea_title")}
-          className={inputClass}
+          className={inputClass(!!errors.idea_title)}
           placeholder="A short, catchy name for your idea"
         />
       </FormField>
@@ -178,12 +186,13 @@ export function IdeaForm() {
         id="idea_description"
         error={errors.idea_description?.message}
         required
+        hint="Tip: Describe the problem, who has it, and what a solution looks like."
       >
         <textarea
           id="idea_description"
           {...register("idea_description")}
           rows={5}
-          className={cn(inputClass, "resize-none")}
+          className={cn(inputClass(!!errors.idea_description), "resize-none")}
           placeholder="What problem does it solve? Who is it for? What are the core features?"
         />
       </FormField>
@@ -194,7 +203,7 @@ export function IdeaForm() {
           <input
             id="target_audience"
             {...register("target_audience")}
-            className={inputClass}
+            className={inputClass(!!errors.target_audience)}
             placeholder="e.g., Small business owners, developers..."
           />
         </FormField>
@@ -203,7 +212,7 @@ export function IdeaForm() {
           id="business_model"
           error={errors.business_model?.message}
         >
-          <select id="business_model" {...register("business_model")} className={inputClass}>
+          <select id="business_model" {...register("business_model")} className={inputClass(!!errors.business_model)}>
             <option value="" className="bg-zinc-900 text-gray-400">Select a model (optional)</option>
             {businessModels.map((m) => (
               <option key={m} value={m} className="bg-zinc-900 text-white">
@@ -214,19 +223,21 @@ export function IdeaForm() {
         </FormField>
       </div>
 
-      {/* Referral source */}
-      <FormField
-        label="How did you hear about us?"
-        id="referral_source"
-        error={errors.referral_source?.message}
-      >
-        <input
+      {/* Referral source -- collapsed into a small optional row */}
+      <div className="pt-2 border-t border-white/5">
+        <FormField
+          label="How did you hear about us? (optional)"
           id="referral_source"
-          {...register("referral_source")}
-          className={inputClass}
-          placeholder="Twitter, LinkedIn, a friend..."
-        />
-      </FormField>
+          error={errors.referral_source?.message}
+        >
+          <input
+            id="referral_source"
+            {...register("referral_source")}
+            className={inputClass(!!errors.referral_source)}
+            placeholder="Twitter, LinkedIn, a friend..."
+          />
+        </FormField>
+      </div>
 
       {/* Submit button */}
       <button
