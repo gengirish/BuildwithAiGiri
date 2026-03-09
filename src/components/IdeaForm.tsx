@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
@@ -74,6 +74,12 @@ export function IdeaForm() {
     name: string;
     ideaTitle: string;
   } | null>(null);
+  const honeypotRef = useRef<HTMLInputElement>(null);
+  const loadedAt = useRef<number>(Date.now());
+
+  useEffect(() => {
+    loadedAt.current = Date.now();
+  }, []);
 
   const {
     register,
@@ -89,7 +95,11 @@ export function IdeaForm() {
       const res = await fetch("/api/submissions", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          ...data,
+          _hp: honeypotRef.current?.value || "",
+          _t: loadedAt.current,
+        }),
       });
 
       if (!res.ok) {
@@ -250,6 +260,19 @@ export function IdeaForm() {
             placeholder="Twitter, LinkedIn, a friend..."
           />
         </FormField>
+      </div>
+
+      {/* Honeypot — invisible to humans, bots auto-fill it */}
+      <div aria-hidden="true" className="absolute opacity-0 h-0 w-0 overflow-hidden" tabIndex={-1}>
+        <label htmlFor="_website">Website</label>
+        <input
+          id="_website"
+          ref={honeypotRef}
+          type="text"
+          name="_website"
+          autoComplete="off"
+          tabIndex={-1}
+        />
       </div>
 
       {/* Submit button */}

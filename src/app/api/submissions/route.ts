@@ -7,7 +7,9 @@ export const dynamic = "force-dynamic";
 
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
 
-function checkRateLimit(ip: string, limit = 5, windowMs = 60_000): boolean {
+const MIN_FILL_TIME_MS = 3_000;
+
+function checkRateLimit(ip: string, limit = 3, windowMs = 60_000): boolean {
   const now = Date.now();
   const entry = rateLimitMap.get(ip);
 
@@ -34,7 +36,23 @@ export async function POST(req: NextRequest) {
     }
 
     const body = await req.json();
-    const parsed = submissionSchema.safeParse(body);
+
+    if (body._hp) {
+      return NextResponse.json(
+        { success: true, message: "Idea submitted successfully!" },
+        { status: 201 },
+      );
+    }
+
+    if (body._t && Date.now() - Number(body._t) < MIN_FILL_TIME_MS) {
+      return NextResponse.json(
+        { error: "Please take your time filling out the form." },
+        { status: 422 },
+      );
+    }
+
+    const { _hp, _t, ...formData } = body;
+    const parsed = submissionSchema.safeParse(formData);
 
     if (!parsed.success) {
       const firstIssue = parsed.error.issues[0];
