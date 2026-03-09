@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Rocket } from "lucide-react";
+import { Menu, X, Rocket, LayoutDashboard } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
@@ -37,6 +37,13 @@ export function Navbar() {
               {link.label}
             </Link>
           ))}
+          <Link
+            href="/dashboard"
+            className="flex items-center gap-1.5 text-sm text-gray-400 hover:text-white transition-colors"
+          >
+            <LayoutDashboard className="h-4 w-4" />
+            Dashboard
+          </Link>
           <Link
             href="/submit"
             className="rounded-lg bg-cyan-500 px-5 py-2 text-sm font-semibold text-white hover:bg-cyan-400 transition-colors"
@@ -78,6 +85,17 @@ export function Navbar() {
                   {link.label}
                 </Link>
               ))}
+              <Link
+                href="/dashboard"
+                onClick={() => setMobileOpen(false)}
+                className={cn(
+                  "flex items-center gap-2 rounded-lg px-4 py-3 text-sm text-gray-300",
+                  "hover:bg-white/5 hover:text-white transition-colors",
+                )}
+              >
+                <LayoutDashboard className="h-4 w-4" />
+                Dashboard
+              </Link>
               <Link
                 href="/submit"
                 onClick={() => setMobileOpen(false)}

@@ -51,12 +51,27 @@ test.describe("Navigation", () => {
     await expect(footer.getByText("Connect")).toBeVisible();
   });
 
+  test("should navigate from landing to dashboard via navbar", async ({ page }) => {
+    await page.goto("/");
+    await page
+      .getByRole("navigation")
+      .getByRole("link", { name: "Dashboard" })
+      .click();
+    await expect(page).toHaveURL(/\/dashboard/);
+    await expect(
+      page.getByRole("heading", { name: /Dashboard/i }),
+    ).toBeVisible({ timeout: 15000 });
+  });
+
   test("should open mobile menu on small viewport", async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 812 });
     await page.goto("/");
     await page.getByLabel("Toggle menu").click();
     await expect(
       page.locator(".md\\:hidden").getByRole("link", { name: "Showcase" }),
+    ).toBeVisible();
+    await expect(
+      page.locator(".md\\:hidden").getByRole("link", { name: "Dashboard" }),
     ).toBeVisible();
   });
 });
