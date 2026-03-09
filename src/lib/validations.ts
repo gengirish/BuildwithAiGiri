@@ -3,6 +3,7 @@ import { z } from "zod";
 export const submissionSchema = z.object({
   full_name: z.string().min(2, "Name is required"),
   email: z.string().email("Invalid email address"),
+  phone: z.string().min(7, "Please enter a valid phone number"),
   role: z.string().min(1, "Please select your role"),
   company: z.string().optional(),
   idea_title: z.string().min(5, "Title must be at least 5 characters"),

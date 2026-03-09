@@ -143,7 +143,28 @@ export function IdeaForm() {
         </FormField>
       </div>
 
-      {/* Role and Company row */}
+      {/* Phone and Company row */}
+      <div className="grid gap-6 sm:grid-cols-2">
+        <FormField label="Phone Number" id="phone" error={errors.phone?.message} required>
+          <input
+            id="phone"
+            {...register("phone")}
+            type="tel"
+            className={inputClass(!!errors.phone)}
+            placeholder="+91 98765 43210"
+          />
+        </FormField>
+        <FormField label="Company / Organization" id="company" error={errors.company?.message}>
+          <input
+            id="company"
+            {...register("company")}
+            className={inputClass(!!errors.company)}
+            placeholder="Optional"
+          />
+        </FormField>
+      </div>
+
+      {/* Role row */}
       <div className="grid gap-6 sm:grid-cols-2">
         <FormField label="Your Role" id="role" error={errors.role?.message} required>
           <select id="role" {...register("role")} className={inputClass(!!errors.role)}>
@@ -154,14 +175,6 @@ export function IdeaForm() {
               </option>
             ))}
           </select>
-        </FormField>
-        <FormField label="Company / Organization" id="company" error={errors.company?.message}>
-          <input
-            id="company"
-            {...register("company")}
-            className={inputClass(!!errors.company)}
-            placeholder="Optional"
-          />
         </FormField>
       </div>
 

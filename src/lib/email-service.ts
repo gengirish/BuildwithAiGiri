@@ -137,6 +137,7 @@ export async function sendSubmissionConfirmation(data: {
 export async function sendAdminNotification(data: {
   full_name: string;
   email: string;
+  phone: string;
   role: string;
   company?: string;
   idea_title: string;
@@ -154,6 +155,7 @@ export async function sendAdminNotification(data: {
   const detailRows = [
     { label: "Name", value: data.full_name },
     { label: "Email", value: `<a href="mailto:${data.email}" style="color:#06b6d4">${data.email}</a>` },
+    { label: "Phone", value: `<a href="tel:${data.phone}" style="color:#06b6d4">${data.phone}</a>` },
     { label: "Role", value: data.role },
     ...(data.company ? [{ label: "Company", value: data.company }] : []),
     ...(data.target_audience ? [{ label: "Audience", value: data.target_audience }] : []),
@@ -164,6 +166,7 @@ export async function sendAdminNotification(data: {
   const details = [
     `Name: ${data.full_name}`,
     `Email: ${data.email}`,
+    `Phone: ${data.phone}`,
     `Role: ${data.role}`,
     data.company ? `Company: ${data.company}` : null,
     `Idea: ${data.idea_title}`,

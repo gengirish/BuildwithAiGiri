@@ -2,6 +2,7 @@ export interface Submission {
   id: string;
   full_name: string;
   email: string;
+  phone: string;
   role: string;
   company: string | null;
   idea_title: string;

@@ -22,6 +22,7 @@ class Submission(Base):
     id = Column(UUID(as_uuid=True), primary_key=True, server_default=func.gen_random_uuid())
     full_name = Column(Text, nullable=False)
     email = Column(Text, nullable=False)
+    phone = Column(Text, nullable=False)
     role = Column(Text, nullable=False)
     company = Column(Text, nullable=True)
     idea_title = Column(Text, nullable=False)
