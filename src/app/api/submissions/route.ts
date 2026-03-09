@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { submissionSchema } from "@/lib/validations";
 import { getServiceClient } from "@/lib/supabase";
-import { sendSubmissionConfirmation } from "@/lib/email-service";
+import { sendSubmissionConfirmation, sendAdminNotification } from "@/lib/email-service";
 
 export const dynamic = "force-dynamic";
 
@@ -56,6 +56,10 @@ export async function POST(req: NextRequest) {
         idea_title: parsed.data.idea_title,
       }).catch((err) => console.error("Email send failed:", err));
 
+      sendAdminNotification(parsed.data).catch((err) =>
+        console.error("Admin notification failed:", err),
+      );
+
       return NextResponse.json(
         { success: true, message: "Idea submitted successfully!" },
         { status: 201 },
@@ -80,6 +84,10 @@ export async function POST(req: NextRequest) {
       full_name: parsed.data.full_name,
       idea_title: parsed.data.idea_title,
     }).catch((err) => console.error("Email send failed:", err));
+
+    sendAdminNotification(parsed.data).catch((err) =>
+      console.error("Admin notification failed:", err),
+    );
 
     return NextResponse.json(
       { success: true, message: "Idea submitted successfully!" },
