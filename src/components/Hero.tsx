@@ -54,51 +54,55 @@ export function Hero() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="inline-flex items-center gap-3 rounded-full bg-white/5 border border-white/10 px-4 py-2 mb-8"
+            className="inline-flex items-center gap-4 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-sm px-5 py-3 mb-8 hover:border-cyan-500/20 transition-all duration-300"
           >
-            <Image
-              src="https://girishbhiremath.vercel.app/_next/image?url=%2Fprofile.jpg&w=256&q=75"
-              alt="Girish Hiremath"
-              width={36}
-              height={36}
-              className="rounded-full"
-            />
-            <div className="text-left">
-              <span className="text-sm font-medium text-white">
-                Girish Hiremath
-              </span>
-              <span className="text-xs text-gray-500 ml-2">
-                Software Architect &middot; 14+ yrs
-              </span>
+            <div className="relative shrink-0">
+              <div className="absolute -inset-0.5 rounded-full bg-gradient-to-br from-cyan-400 to-blue-500 opacity-60 blur-[2px]" />
+              <Image
+                src="https://girishbhiremath.vercel.app/_next/image?url=%2Fprofile.jpg&w=256&q=75"
+                alt="Girish Hiremath"
+                width={44}
+                height={44}
+                className="relative rounded-full ring-2 ring-white/10"
+              />
             </div>
-            <div className="flex items-center gap-1.5 ml-2 border-l border-white/10 pl-3">
-              <a
-                href="https://www.linkedin.com/in/girish-b-hiremath/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-cyan-400 transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="h-4 w-4" />
-              </a>
-              <a
-                href="https://github.com/gengirish"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-cyan-400 transition-colors"
-                aria-label="GitHub"
-              >
-                <Github className="h-4 w-4" />
-              </a>
-              <a
-                href="https://girishbhiremath.vercel.app"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-cyan-400 transition-colors"
-                aria-label="Portfolio"
-              >
-                <Globe className="h-4 w-4" />
-              </a>
+            <div className="text-left">
+              <p className="text-sm font-semibold text-white leading-tight">
+                Girish Hiremath
+              </p>
+              <p className="text-xs text-gray-500 mt-0.5">
+                Software Architect &middot; 14+ yrs
+              </p>
+            </div>
+            <div className="flex items-center gap-1.5 ml-1 border-l border-white/10 pl-4">
+              {[
+                {
+                  icon: Linkedin,
+                  href: "https://www.linkedin.com/in/girish-b-hiremath/",
+                  label: "LinkedIn",
+                },
+                {
+                  icon: Github,
+                  href: "https://github.com/gengirish",
+                  label: "GitHub",
+                },
+                {
+                  icon: Globe,
+                  href: "https://girishbhiremath.vercel.app",
+                  label: "Portfolio",
+                },
+              ].map(({ icon: Icon, href, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center h-8 w-8 rounded-lg bg-white/5 text-gray-400 hover:bg-cyan-500/10 hover:text-cyan-400 transition-all"
+                  aria-label={label}
+                >
+                  <Icon className="h-3.5 w-3.5" />
+                </a>
+              ))}
             </div>
           </motion.div>
 
