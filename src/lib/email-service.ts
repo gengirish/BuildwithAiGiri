@@ -80,7 +80,7 @@ export async function sendSubmissionConfirmation(data: {
       "",
       "— The MVP Labs Team",
       "MVP Labs by IntelliForge AI | 25 MVPs in 25 Weeks",
-      "https://buildwithaigiri.vercel.app",
+      "https://mvplabs.intelliforge.tech",
     ].join("\n"),
     html: `
       <div style="font-family: 'Inter', -apple-system, sans-serif; max-width: 600px; margin: 0 auto; background: #0a0a0a; color: #fafafa; padding: 40px 30px; border-radius: 16px;">

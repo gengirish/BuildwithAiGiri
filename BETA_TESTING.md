@@ -1,6 +1,6 @@
 # MVP Labs (by IntelliForge AI) — Beta Testing Guide
 
-> **Production URL:** https://buildwithaigiri.vercel.app
+> **Production URL:** https://mvplabs.intelliforge.tech
 > **Deployment:** Vercel (auto-deploys on push to `master`)
 > **Last updated:** March 2026
 
@@ -10,7 +10,7 @@
 
 | Environment | URL | Purpose |
 |-------------|-----|---------|
-| **Production** | `https://buildwithaigiri.vercel.app` | Live site, real Supabase data |
+| **Production** | `https://mvplabs.intelliforge.tech` | Live site, real Supabase data |
 | **Preview** | `https://<branch>.vercel.app` | Auto-created per PR / branch push |
 | **Local** | `http://localhost:3000` | Dev server with `.env.local` |
 
@@ -174,7 +174,7 @@ npx playwright show-report
 ### Running Tests Against Production
 
 ```bash
-BASE_URL=https://buildwithaigiri.vercel.app npx playwright test
+BASE_URL=https://mvplabs.intelliforge.tech npx playwright test
 ```
 
 ### Running Tests Against Preview Deployment
@@ -211,7 +211,7 @@ Running 34 tests using 1 worker
 ### Submit an Idea
 
 ```bash
-curl -X POST https://buildwithaigiri.vercel.app/api/submissions \
+curl -X POST https://mvplabs.intelliforge.tech/api/submissions \
   -H "Content-Type: application/json" \
   -d '{
     "full_name": "Beta Tester",
@@ -227,7 +227,7 @@ curl -X POST https://buildwithaigiri.vercel.app/api/submissions \
 ### Fetch Projects
 
 ```bash
-curl https://buildwithaigiri.vercel.app/api/projects
+curl https://mvplabs.intelliforge.tech/api/projects
 ```
 
 **Expected:** HTTP 200, JSON array
@@ -235,7 +235,7 @@ curl https://buildwithaigiri.vercel.app/api/projects
 ### Fetch Submissions (Admin)
 
 ```bash
-curl https://buildwithaigiri.vercel.app/api/submissions
+curl https://mvplabs.intelliforge.tech/api/submissions
 ```
 
 **Expected:** HTTP 200, JSON array
@@ -246,7 +246,7 @@ curl https://buildwithaigiri.vercel.app/api/submissions
 # Run 10 rapid requests — later ones should return 429
 for i in $(seq 1 10); do
   curl -s -o /dev/null -w "%{http_code}\n" -X POST \
-    https://buildwithaigiri.vercel.app/api/submissions \
+    https://mvplabs.intelliforge.tech/api/submissions \
     -H "Content-Type: application/json" \
     -d '{"full_name":"Rate Test","email":"rate@test.com","idea_title":"Rate Limit Test","idea_description":"Testing that the rate limiter kicks in after too many rapid requests."}'
 done

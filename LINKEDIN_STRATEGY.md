@@ -1,6 +1,6 @@
 # BuildwithAiGiri — LinkedIn Marketing Strategy
 
-**Goal:** Drive idea submissions via https://buildwithaigiri.vercel.app/submit
+**Goal:** Drive idea submissions via https://mvplabs.intelliforge.tech/submit
 **Profile:** https://www.linkedin.com/in/girish-b-hiremath/
 **Launch post:** https://www.linkedin.com/feed/update/urn:li:share:7435555106852478976/
 
@@ -75,7 +75,7 @@ Week 1 is live.
 Stop waiting for the "right time" or the "right co-founder."
 The right time is this week.
 
-Submit your idea → https://buildwithaigiri.vercel.app/submit
+Submit your idea → https://mvplabs.intelliforge.tech/submit
 
 Share this if you believe ideas deserve better than a graveyard. 🤝
 
@@ -125,7 +125,7 @@ that's ever made me feel alive.
 
 Week 0 is open. Submissions are live.
 
-🔗 https://buildwithaigiri.vercel.app/submit
+🔗 https://mvplabs.intelliforge.tech/submit
 
 #BuildwithAiGiri #MVP #Startup #BuildInPublic #SaaS
 ```
@@ -160,7 +160,7 @@ Still have an idea sitting in your notes app?
 
 This is your sign.
 
-🔗 https://buildwithaigiri.vercel.app/submit
+🔗 https://mvplabs.intelliforge.tech/submit
 
 #BuildwithAiGiri #StartupIdeas #MVP #ProductDevelopment
 ```
@@ -185,7 +185,7 @@ I'm genuinely blown away.
 If you've been on the fence, submissions close
 for Week 1 on [date].
 
-🔗 https://buildwithaigiri.vercel.app/submit
+🔗 https://mvplabs.intelliforge.tech/submit
 
 #BuildwithAiGiri #BuildInPublic
 ```
@@ -284,7 +284,7 @@ their first 10 users signed up.
 That's the power of shipping fast.
 
 Week [X+1] submissions are open →
-https://buildwithaigiri.vercel.app/submit
+https://mvplabs.intelliforge.tech/submit
 
 #BuildwithAiGiri #LessonsLearned #StartupLessons
 ```
@@ -348,7 +348,7 @@ one free MVP per week for 25 weeks. No cost, no equity.
 
 If you or someone you know has an idea that needs
 building, I'd love to hear about it:
-https://buildwithaigiri.vercel.app/submit
+https://mvplabs.intelliforge.tech/submit
 
 Either way, great content. Keep shipping. 🙌
 ```
@@ -456,14 +456,14 @@ Here's how it works:
 → I build the MVP in 7 days
 → You own 100% of the code
 
-Submit here: https://buildwithaigiri.vercel.app/submit
+Submit here: https://mvplabs.intelliforge.tech/submit
 
 Or just reply to this email and tell me about your idea — happy to chat.
 
 Best,
 Girish Hiremath
 Software Architect · BuildwithAiGiri
-https://buildwithaigiri.vercel.app
+https://mvplabs.intelliforge.tech
 https://www.linkedin.com/in/girish-b-hiremath/
 ```
 
@@ -491,7 +491,7 @@ What you'd get:
 • A signed IP agreement — your idea stays yours
 
 If you've got something brewing, I'd love to hear about it:
-https://buildwithaigiri.vercel.app/submit
+https://mvplabs.intelliforge.tech/submit
 
 No pressure either way. Keep shipping.
 
@@ -522,13 +522,13 @@ Here's the deal:
 
 I've built systems for banks, healthcare companies, and enterprise platforms. Now I want to build for you.
 
-Submit your idea: https://buildwithaigiri.vercel.app/submit
+Submit your idea: https://mvplabs.intelliforge.tech/submit
 
 If you know someone else who'd benefit, feel free to forward this along.
 
 Cheers,
 Girish Hiremath
-https://buildwithaigiri.vercel.app
+https://mvplabs.intelliforge.tech
 ```
 
 ---
@@ -555,7 +555,7 @@ If anyone in your network:
 
 ...I'd genuinely love to help them. Just forward this email or send them here:
 
-https://buildwithaigiri.vercel.app/submit
+https://mvplabs.intelliforge.tech/submit
 
 Appreciate it, [First Name]. And if YOU do have an idea — you know where to find me.
 
@@ -576,7 +576,7 @@ Just floating this back up in case it got buried.
 Quick recap: I'm building 25 free MVPs in 25 weeks. Your idea caught my eye as a potential fit.
 
 No pressure at all — but if you've got 3 minutes, the submission form is here:
-https://buildwithaigiri.vercel.app/submit
+https://mvplabs.intelliforge.tech/submit
 
 Either way, wishing you the best with [their project / company / idea].
 
@@ -605,8 +605,8 @@ I've been doing this with enterprise clients for 14 years. Now I'm offering it f
 
 Would you be open to sharing this with your community? It could be a valuable resource for members who are pre-product or stuck at the idea stage.
 
-Landing page: https://buildwithaigiri.vercel.app
-Submission form: https://buildwithaigiri.vercel.app/submit
+Landing page: https://mvplabs.intelliforge.tech
+Submission form: https://mvplabs.intelliforge.tech/submit
 
 Happy to jump on a quick call if you'd like to learn more.
 
@@ -724,7 +724,7 @@ We ship in 7 days.
 The co-founder myth keeps good ideas trapped
 in Notion docs. Let's break it.
 
-→ https://buildwithaigiri.vercel.app/submit
+→ https://mvplabs.intelliforge.tech/submit
 
 What idea have you been sitting on
 because you couldn't find someone to build it?
@@ -785,7 +785,7 @@ isn't quality. It's focus.
 I'm applying enterprise engineering discipline
 to startup speed. For free.
 
-→ https://buildwithaigiri.vercel.app/submit
+→ https://mvplabs.intelliforge.tech/submit
 
 What's the one feature your idea absolutely
 cannot launch without?
@@ -847,7 +847,7 @@ It's "should it be built?"
 Bring me your "should."
 I'll handle the "can."
 
-→ https://buildwithaigiri.vercel.app/submit
+→ https://mvplabs.intelliforge.tech/submit
 
 #BuildwithAiGiri #AI #BuildInPublic #SaaS #MVP #FutureOfWork #SoftwareEngineering
 ```
@@ -877,7 +877,7 @@ IP: Yours. We sign an agreement.
 
 This isn't theoretical.
 
-The site is live: buildwithaigiri.vercel.app
+The site is live: mvplabs.intelliforge.tech
 The submission form takes 3 minutes.
 The stack is whatever your idea needs.
 
@@ -898,7 +898,7 @@ What I bring:
 24 more weeks after this.
 But each week is first come, first reviewed.
 
-→ https://buildwithaigiri.vercel.app/submit
+→ https://mvplabs.intelliforge.tech/submit
 
 #BuildwithAiGiri #MVP #Startup #BuildInPublic #FreeForFounders
 ```
@@ -955,7 +955,7 @@ plus modern AI tooling looks like.
 Week 2 submissions are open.
 Your idea could be the next build log.
 
-→ https://buildwithaigiri.vercel.app/submit
+→ https://mvplabs.intelliforge.tech/submit
 
 #BuildwithAiGiri #BuildInPublic #ShipIt #MVP #Week1
 ```

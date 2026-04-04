@@ -36,11 +36,11 @@ export const metadata: Metadata = {
     description:
       "Submit your idea. Get a free MVP built in one week by IntelliForge AI's 14+ year veteran team.",
     type: "website",
-    url: "https://buildwithaigiri.vercel.app",
+    url: "https://mvplabs.intelliforge.tech",
     siteName: "MVP Labs",
     images: [
       {
-        url: "https://buildwithaigiri.vercel.app/og.png",
+        url: "https://mvplabs.intelliforge.tech/og.png",
         width: 1200,
         height: 630,
         alt: "MVP Labs by IntelliForge AI — 25 MVPs in 25 Weeks",
@@ -52,9 +52,9 @@ export const metadata: Metadata = {
     title: "MVP Labs by IntelliForge AI | 25 MVPs in 25 Weeks",
     description:
       "Submit your idea. Get a free MVP built in one week by IntelliForge AI.",
-    images: ["https://buildwithaigiri.vercel.app/og.png"],
+    images: ["https://mvplabs.intelliforge.tech/og.png"],
   },
-  metadataBase: new URL("https://buildwithaigiri.vercel.app"),
+  metadataBase: new URL("https://mvplabs.intelliforge.tech"),
 };
 
 export default function RootLayout({
@@ -89,7 +89,7 @@ export default function RootLayout({
       {
         "@type": "WebSite",
         name: "MVP Labs",
-        url: "https://buildwithaigiri.vercel.app",
+        url: "https://mvplabs.intelliforge.tech",
         description:
           "25 MVPs in 25 Weeks — Submit your idea and get a free MVP built by IntelliForge AI.",
         creator: { "@type": "Organization", name: "IntelliForge AI" },
