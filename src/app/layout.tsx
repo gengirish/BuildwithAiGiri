@@ -16,9 +16,9 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "BuildwithAiGiri | 25 MVPs in 25 Weeks",
+  title: "MVP Labs by IntelliForge AI | 25 MVPs in 25 Weeks",
   description:
-    "A movement where an experienced architect builds free software MVPs every week for 25 weeks. Submit your idea, brainstorm together, and get a working product.",
+    "MVP Labs by IntelliForge AI builds free software MVPs every week for 25 weeks. Submit your idea, brainstorm together, and get a working product — at zero cost.",
   keywords: [
     "MVP",
     "startup",
@@ -26,32 +26,32 @@ export const metadata: Metadata = {
     "free",
     "software",
     "AI",
-    "collaboration",
-    "open source",
+    "IntelliForge",
+    "MVP Labs",
     "SaaS",
-    "BuildwithAiGiri",
+    "open source",
   ],
   openGraph: {
-    title: "BuildwithAiGiri | 25 MVPs in 25 Weeks — Submit Your Idea",
+    title: "MVP Labs by IntelliForge AI | 25 MVPs in 25 Weeks",
     description:
-      "Submit your idea. Get a free MVP built in one week by a 14-year veteran architect. Join the movement.",
+      "Submit your idea. Get a free MVP built in one week by IntelliForge AI's 14+ year veteran team.",
     type: "website",
     url: "https://buildwithaigiri.vercel.app",
-    siteName: "BuildwithAiGiri",
+    siteName: "MVP Labs",
     images: [
       {
         url: "https://buildwithaigiri.vercel.app/og.png",
         width: 1200,
         height: 630,
-        alt: "BuildwithAiGiri — 25 MVPs in 25 Weeks",
+        alt: "MVP Labs by IntelliForge AI — 25 MVPs in 25 Weeks",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "BuildwithAiGiri | 25 MVPs in 25 Weeks",
+    title: "MVP Labs by IntelliForge AI | 25 MVPs in 25 Weeks",
     description:
-      "Submit your idea. Get a free MVP built in one week. Join the movement.",
+      "Submit your idea. Get a free MVP built in one week by IntelliForge AI.",
     images: ["https://buildwithaigiri.vercel.app/og.png"],
   },
   metadataBase: new URL("https://buildwithaigiri.vercel.app"),
@@ -66,28 +66,33 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Person",
-        name: "Girish Hiremath",
-        url: "https://girishbhiremath.vercel.app",
+        "@type": "Organization",
+        name: "IntelliForge AI",
+        url: "https://www.intelliforge.tech",
         sameAs: [
           "https://www.linkedin.com/in/girish-b-hiremath/",
           "https://github.com/gengirish",
         ],
-        jobTitle: "Software Architect",
+        founder: {
+          "@type": "Person",
+          name: "Girish Hiremath",
+          jobTitle: "Lead Architect",
+        },
         knowsAbout: [
           "Software Architecture",
           "Full-Stack Development",
           "AI/ML",
           "SaaS",
+          "MVP Development",
         ],
       },
       {
         "@type": "WebSite",
-        name: "BuildwithAiGiri",
+        name: "MVP Labs",
         url: "https://buildwithaigiri.vercel.app",
         description:
-          "25 MVPs in 25 Weeks — Submit your idea and get a free MVP built by an experienced architect.",
-        creator: { "@type": "Person", name: "Girish Hiremath" },
+          "25 MVPs in 25 Weeks — Submit your idea and get a free MVP built by IntelliForge AI.",
+        creator: { "@type": "Organization", name: "IntelliForge AI" },
       },
       {
         "@type": "FAQPage",
@@ -97,7 +102,7 @@ export default function RootLayout({
             name: "Is this really free? What's the catch?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Yes, 100% free. No equity, no fees, no hidden costs. This is a personal mission to give back to the community by helping turn ideas into real products.",
+              text: "Yes, 100% free. No equity, no fees, no hidden costs. MVP Labs is IntelliForge AI's initiative to give back to the community by helping turn ideas into real products.",
             },
           },
           {

@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "BuildwithAiGiri — 25 MVPs in 25 Weeks";
+export const alt = "MVP Labs by IntelliForge AI — 25 MVPs in 25 Weeks";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -61,7 +61,7 @@ export default function OGImage() {
           }}
         >
           <span style={{ fontSize: "18px", color: "#06b6d4" }}>
-            The Movement Has Begun
+            An IntelliForge AI Initiative
           </span>
         </div>
 
@@ -125,13 +125,11 @@ export default function OGImage() {
           <span
             style={{ fontSize: "20px", fontWeight: 700, color: "#fafafa" }}
           >
-            Build
-            <span style={{ color: "#06b6d4" }}>withAi</span>
-            Giri
+            MVP <span style={{ color: "#06b6d4" }}>Labs</span>
           </span>
           <span style={{ fontSize: "20px", color: "#4b5563" }}>|</span>
           <span style={{ fontSize: "18px", color: "#6b7280" }}>
-            by Girish Hiremath
+            by IntelliForge AI
           </span>
         </div>
       </div>

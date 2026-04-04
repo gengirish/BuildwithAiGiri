@@ -9,12 +9,12 @@ const faqs = [
   {
     question: "Is this really free? What's the catch?",
     answer:
-      "Yes, 100% free. No equity, no fees, no hidden costs. This is a personal mission to give back to the community by helping turn ideas into real products. The only thing I ask is your time for a brainstorming call and your passion for the idea.",
+      "Yes, 100% free. No equity, no fees, no hidden costs. MVP Labs is IntelliForge AI's initiative to give back to the community by helping turn ideas into real products. The only thing we ask is your time for a brainstorming call and your passion for the idea.",
   },
   {
     question: "What kind of ideas are you looking for?",
     answer:
-      "I'm looking for SaaS products, subscription-based platforms, marketplaces, or any software idea that can be scoped into a week-long MVP. The idea should solve a real problem and have a clear target audience. I'm open to all domains -- fintech, healthtech, edtech, developer tools, and more.",
+      "We're looking for SaaS products, subscription-based platforms, marketplaces, or any software idea that can be scoped into a week-long MVP. The idea should solve a real problem and have a clear target audience. We're open to all domains -- fintech, healthtech, edtech, developer tools, and more.",
   },
   {
     question: "What happens during the brainstorming call?",
@@ -24,22 +24,22 @@ const faqs = [
   {
     question: "What tech stack will be used?",
     answer:
-      "I'll choose the best tech stack for your specific project. Common choices include Next.js, React, Python/FastAPI, Supabase, PostgreSQL, and modern AI tools. The goal is to ship fast without sacrificing quality.",
+      "We choose the best tech stack for your specific project. Common choices include Next.js, React, Python/FastAPI, Supabase, PostgreSQL, and modern AI tools. The goal is to ship fast without sacrificing quality.",
   },
   {
     question: "Who owns the code?",
     answer:
-      "You do. After the build week, all code, workflows, and documentation are handed over to you. Projects can be open-source or closed-source -- your choice. I'll also help your team understand the codebase so they can take it forward.",
+      "You do. After the build week, all code, workflows, and documentation are handed over to you. Projects can be open-source or closed-source -- your choice. We'll also help your team understand the codebase so they can take it forward.",
   },
   {
     question: "What if my idea isn't selected?",
     answer:
-      "I can only build one MVP per week for 25 weeks, so not every idea will be selected. Selection is based on feasibility, impact, and alignment with the weekly scope. Even if not selected, I may share feedback or suggestions on your submission.",
+      "We can only build one MVP per week for 25 weeks, so not every idea will be selected. Selection is based on feasibility, impact, and alignment with the weekly scope. Even if not selected, we may share feedback or suggestions on your submission.",
   },
   {
     question: "Can I collaborate during the build week?",
     answer:
-      "Absolutely! In fact, I encourage it. The more domain expertise and feedback you provide during the week, the better the MVP will be. We'll stay in close communication throughout the process.",
+      "Absolutely! In fact, we encourage it. The more domain expertise and feedback you provide during the week, the better the MVP will be. We'll stay in close communication throughout the process.",
   },
 ];
 
@@ -108,7 +108,7 @@ export function FAQ() {
             <span className="gradient-text">Questions</span>
           </h2>
           <p className="text-lg text-gray-400">
-            Everything you need to know about the movement.
+            Everything you need to know about MVP Labs.
           </p>
         </motion.div>
 

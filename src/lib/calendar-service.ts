@@ -28,9 +28,9 @@ export async function createBrainstormInvite({
     conferenceDataVersion: 1,
     sendUpdates: "all",
     requestBody: {
-      summary: `BuildwithAiGiri Brainstorm: ${ideaTitle}`,
+      summary: `MVP Labs Brainstorm: ${ideaTitle}`,
       description: [
-        `1-hour brainstorming call for BuildwithAiGiri MVP.`,
+        `1-hour brainstorming call for MVP Labs build.`,
         "",
         `Idea: ${ideaTitle}`,
         `Collaborator: ${attendeeName} (${attendeeEmail})`,
@@ -41,8 +41,8 @@ export async function createBrainstormInvite({
         "• Discuss architecture and tech stack",
         "• Agree on deliverables and communication plan",
         "",
-        "— Girish Hiremath",
-        "https://buildwithaigiri.vercel.app",
+        "— MVP Labs by IntelliForge AI",
+        "https://www.intelliforge.tech",
       ].join("\n"),
       start: {
         dateTime: startDate.toISOString(),
@@ -58,7 +58,7 @@ export async function createBrainstormInvite({
       ],
       conferenceData: {
         createRequest: {
-          requestId: `bwag-${Date.now()}`,
+          requestId: `mvplabs-${Date.now()}`,
           conferenceSolutionKey: { type: "hangoutsMeet" },
         },
       },

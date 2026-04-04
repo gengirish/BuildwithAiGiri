@@ -7,7 +7,7 @@ const socials = [
   {
     icon: Linkedin,
     label: "Follow on LinkedIn",
-    href: "https://www.linkedin.com/in/girish-b-hiremath/",
+    href: "https://www.linkedin.com/company/intelliforge-ai/",
     color: "hover:bg-blue-600/20 hover:border-blue-500/30 hover:text-blue-400",
   },
   {

@@ -65,7 +65,7 @@ export function PastWork() {
           </h2>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
             A sample of recent projects. The same engineering rigor goes into
-            every BuildwithAiGiri MVP.
+            every MVP Labs build.
           </p>
         </motion.div>
 

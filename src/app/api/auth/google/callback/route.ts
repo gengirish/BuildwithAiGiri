@@ -20,7 +20,7 @@ export async function GET(req: NextRequest) {
       `
       <!DOCTYPE html>
       <html>
-        <head><title>Google OAuth — BuildwithAiGiri</title></head>
+        <head><title>Google OAuth — MVP Labs</title></head>
         <body style="background:#0a0a0a;color:#fafafa;font-family:system-ui;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;">
           <div style="max-width:600px;text-align:center;padding:40px;">
             <h1 style="color:#06b6d4;">Google Connected!</h1>

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles, Github, Linkedin, Globe } from "lucide-react";
+import { ArrowRight, Sparkles, Github, Linkedin, Globe, Zap } from "lucide-react";
 import { WeekCounter } from "./WeekCounter";
 
 export function Hero() {
@@ -27,8 +27,8 @@ export function Hero() {
             transition={{ delay: 0.2 }}
             className="inline-flex items-center gap-2 rounded-full border border-cyan-500/20 bg-cyan-500/10 px-4 py-1.5 text-sm text-cyan-400 mb-8"
           >
-            <Sparkles className="h-3.5 w-3.5" />
-            <span>The Movement Has Begun</span>
+            <Zap className="h-3.5 w-3.5" />
+            <span>An IntelliForge AI Initiative</span>
           </motion.div>
 
           {/* Headline */}
@@ -42,14 +42,14 @@ export function Hero() {
 
           {/* Sub-headline */}
           <p className="mx-auto max-w-2xl text-lg sm:text-xl text-gray-400 leading-relaxed mb-6">
-            SaaS tools, AI-powered apps, dashboards, APIs -- an experienced
-            architect with 14+ years wants to build{" "}
+            SaaS tools, AI-powered apps, dashboards, APIs -- a team with 14+
+            years of enterprise experience will build{" "}
             <span className="text-white font-medium">your MVP</span> in one
             week, at zero cost. Submit your idea and let&apos;s create something
             extraordinary.
           </p>
 
-          {/* Founder identity card */}
+          {/* Company identity card */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -60,7 +60,7 @@ export function Hero() {
               <div className="absolute -inset-0.5 rounded-full bg-gradient-to-br from-cyan-400 to-blue-500 opacity-60 blur-[2px]" />
               <Image
                 src="https://girishbhiremath.vercel.app/_next/image?url=%2Fprofile.jpg&w=256&q=75"
-                alt="Girish Hiremath"
+                alt="Girish Hiremath — Lead Architect"
                 width={44}
                 height={44}
                 className="relative rounded-full ring-2 ring-white/10"
@@ -71,7 +71,7 @@ export function Hero() {
                 Girish Hiremath
               </p>
               <p className="text-xs text-gray-500 mt-0.5">
-                Software Architect &middot; 14+ yrs
+                Lead Architect &middot; IntelliForge AI
               </p>
             </div>
             <div className="flex items-center gap-1.5 ml-1 border-l border-white/10 pl-4">
@@ -88,8 +88,8 @@ export function Hero() {
                 },
                 {
                   icon: Globe,
-                  href: "https://girishbhiremath.vercel.app",
-                  label: "Portfolio",
+                  href: "https://www.intelliforge.tech",
+                  label: "IntelliForge",
                 },
               ].map(({ icon: Icon, href, label }) => (
                 <a

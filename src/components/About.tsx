@@ -39,26 +39,32 @@ export function About() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="font-[var(--font-space)] text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-              Why Am I Doing <span className="gradient-text">This?</span>
+              Why We&apos;re Doing <span className="gradient-text">This</span>
             </h2>
             <div className="space-y-4 text-gray-400 leading-relaxed">
               <p>
-                After 14 years of building solutions in corporate environments,
-                I realized the most exciting projects are the ones that start as
-                a spark -- someone&apos;s idea scribbled on a napkin, a problem
-                that keeps a founder up at night.
+                After 14+ years of building solutions across enterprise
+                environments, we realized the most exciting projects are the
+                ones that start as a spark -- someone&apos;s idea scribbled on a
+                napkin, a problem that keeps a founder up at night.
               </p>
               <p>
-                <span className="text-white font-medium">
-                  BuildwithAiGiri
-                </span>{" "}
-                is my way of giving back. I want to take{" "}
+                <span className="text-white font-medium">MVP Labs</span> is{" "}
+                <a
+                  href="https://www.intelliforge.tech"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-cyan-400 hover:text-cyan-300 transition-colors"
+                >
+                  IntelliForge AI
+                </a>
+                &apos;s way of giving back. We want to take{" "}
                 <span className="text-cyan-400">25 of those sparks</span> and
                 turn them into working software. No fees, no equity, no strings
                 attached.
               </p>
               <p>
-                You bring the idea and the domain expertise. I bring the
+                You bring the idea and the domain expertise. We bring the
                 architecture, code, and a week of relentless building. Together,
                 we ship.
               </p>

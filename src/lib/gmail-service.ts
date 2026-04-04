@@ -58,7 +58,7 @@ export async function sendViaGmail({
     return false;
   }
 
-  const from = `BuildwithAiGiri <${process.env.GMAIL_FROM || "gen.girish@gmail.com"}>`;
+  const from = `MVP Labs <${process.env.GMAIL_FROM || "gen.girish@gmail.com"}>`;
   const raw = buildMimeMessage({ to, from, subject, text, html });
 
   await gmail.users.messages.send({

@@ -39,7 +39,7 @@ async function sendEmail({
       },
       body: JSON.stringify({
         to,
-        from: `BuildwithAiGiri <${inboxId}>`,
+        from: `MVP Labs <${inboxId}>`,
         subject,
         text,
         html,
@@ -64,7 +64,7 @@ export async function sendSubmissionConfirmation(data: {
     text: [
       `Hi ${data.full_name},`,
       "",
-      `Thanks for submitting "${data.idea_title}" to BuildwithAiGiri!`,
+      `Thanks for submitting "${data.idea_title}" to MVP Labs!`,
       "",
       "Here's what happens next:",
       "",
@@ -78,22 +78,23 @@ export async function sendSubmissionConfirmation(data: {
       "",
       "Let's build something extraordinary together!",
       "",
-      "— Girish Hiremath",
-      "BuildwithAiGiri | 25 MVPs in 25 Weeks",
+      "— The MVP Labs Team",
+      "MVP Labs by IntelliForge AI | 25 MVPs in 25 Weeks",
       "https://buildwithaigiri.vercel.app",
     ].join("\n"),
     html: `
       <div style="font-family: 'Inter', -apple-system, sans-serif; max-width: 600px; margin: 0 auto; background: #0a0a0a; color: #fafafa; padding: 40px 30px; border-radius: 16px;">
         <div style="text-align: center; margin-bottom: 32px;">
           <h1 style="font-size: 24px; font-weight: 700; margin: 0;">
-            Build<span style="color: #06b6d4;">withAi</span>Giri
+            MVP <span style="color: #06b6d4;">Labs</span>
           </h1>
+          <p style="font-size: 12px; color: #71717a; margin: 4px 0 0 0;">by IntelliForge AI</p>
         </div>
 
         <p style="font-size: 16px; color: #fafafa; margin-bottom: 8px;">Hi ${data.full_name},</p>
 
         <p style="font-size: 16px; color: #a1a1aa; line-height: 1.6;">
-          Thanks for submitting <strong style="color: #06b6d4;">"${data.idea_title}"</strong> to BuildwithAiGiri!
+          Thanks for submitting <strong style="color: #06b6d4;">"${data.idea_title}"</strong> to MVP Labs!
         </p>
 
         <div style="background: rgba(6, 182, 212, 0.1); border: 1px solid rgba(6, 182, 212, 0.2); border-radius: 12px; padding: 24px; margin: 24px 0;">
@@ -123,10 +124,10 @@ export async function sendSubmissionConfirmation(data: {
             Let's build something extraordinary together!
           </p>
           <p style="font-size: 14px; color: #fafafa; font-weight: 600; margin: 8px 0 0 0;">
-            — Girish Hiremath
+            — The MVP Labs Team
           </p>
           <p style="font-size: 12px; color: #71717a; margin: 4px 0 0 0;">
-            BuildwithAiGiri | 25 MVPs in 25 Weeks
+            MVP Labs by IntelliForge AI | 25 MVPs in 25 Weeks
           </p>
         </div>
       </div>
@@ -181,7 +182,7 @@ export async function sendAdminNotification(data: {
   await sendEmail({
     to: adminEmail,
     subject: `New Idea Submitted: ${data.idea_title}`,
-    text: `New idea submission on BuildwithAiGiri!\n\n${details}`,
+    text: `New idea submission on MVP Labs!\n\n${details}`,
     html: `
       <div style="font-family:'Inter',-apple-system,sans-serif;max-width:600px;margin:0 auto;background:#0a0a0a;color:#fafafa;padding:40px 30px;border-radius:16px;">
         <div style="text-align:center;margin-bottom:24px;">
@@ -238,7 +239,7 @@ export async function sendApprovalEmail(data: {
     text: [
       `Hi ${data.full_name},`,
       "",
-      `Great news! Your idea "${data.idea_title}" has been selected for BuildwithAiGiri!`,
+      `Great news! Your idea "${data.idea_title}" has been selected for MVP Labs!`,
       "",
       "Next step: 1-hour brainstorming call",
       `Date: ${dateStr}`,
@@ -256,21 +257,22 @@ export async function sendApprovalEmail(data: {
       "",
       "Let's build something extraordinary!",
       "",
-      "— Girish Hiremath",
-      "BuildwithAiGiri | 25 MVPs in 25 Weeks",
+      "— The MVP Labs Team",
+      "MVP Labs by IntelliForge AI | 25 MVPs in 25 Weeks",
     ].join("\n"),
     html: `
       <div style="font-family:'Inter',-apple-system,sans-serif;max-width:600px;margin:0 auto;background:#0a0a0a;color:#fafafa;padding:40px 30px;border-radius:16px;">
         <div style="text-align:center;margin-bottom:32px;">
           <h1 style="font-size:24px;font-weight:700;margin:0;">
-            Build<span style="color:#06b6d4;">withAi</span>Giri
+            MVP <span style="color:#06b6d4;">Labs</span>
           </h1>
+          <p style="font-size:12px;color:#71717a;margin:4px 0 0 0;">by IntelliForge AI</p>
         </div>
 
         <p style="font-size:16px;color:#fafafa;margin-bottom:8px;">Hi ${data.full_name},</p>
 
         <p style="font-size:16px;color:#a1a1aa;line-height:1.6;">
-          Great news! Your idea <strong style="color:#06b6d4;">"${data.idea_title}"</strong> has been <strong style="color:#22c55e;">selected</strong> for BuildwithAiGiri!
+          Great news! Your idea <strong style="color:#06b6d4;">"${data.idea_title}"</strong> has been <strong style="color:#22c55e;">selected</strong> for MVP Labs!
         </p>
 
         <div style="background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2);border-radius:12px;padding:24px;margin:24px 0;">
@@ -301,8 +303,8 @@ export async function sendApprovalEmail(data: {
 
         <div style="border-top:1px solid rgba(255,255,255,0.1);margin-top:32px;padding-top:24px;">
           <p style="font-size:14px;color:#a1a1aa;margin:0;">Let's build something extraordinary!</p>
-          <p style="font-size:14px;color:#fafafa;font-weight:600;margin:8px 0 0 0;">— Girish Hiremath</p>
-          <p style="font-size:12px;color:#71717a;margin:4px 0 0 0;">BuildwithAiGiri | 25 MVPs in 25 Weeks</p>
+          <p style="font-size:14px;color:#fafafa;font-weight:600;margin:8px 0 0 0;">— The MVP Labs Team</p>
+          <p style="font-size:12px;color:#71717a;margin:4px 0 0 0;">MVP Labs by IntelliForge AI | 25 MVPs in 25 Weeks</p>
         </div>
       </div>
     `,

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowLeft, Sparkles, Shield } from "lucide-react";
+import { ArrowLeft, Zap, Shield } from "lucide-react";
 import Link from "next/link";
 import { IdeaForm } from "@/components/IdeaForm";
 
@@ -30,8 +30,8 @@ export default function SubmitPage() {
           className="mb-10"
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/20 bg-cyan-500/10 px-4 py-1.5 text-sm text-cyan-400 mb-6">
-            <Sparkles className="h-3.5 w-3.5" />
-            <span>Week 0 of 25 — Now Accepting Ideas</span>
+            <Zap className="h-3.5 w-3.5" />
+            <span>MVP Labs — Now Accepting Ideas</span>
           </div>
           <h1 className="font-[var(--font-space)] text-3xl sm:text-4xl font-bold mb-4">
             Submit Your <span className="gradient-text">Idea</span>
