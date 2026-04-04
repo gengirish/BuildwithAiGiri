@@ -1,9 +1,9 @@
 ---
-name: buildwithaigiri-frontend
-description: Build and maintain the BuildwithAiGiri Next.js frontend with dark theme, animations, and responsive design. Use when creating pages, components, forms, or styling for the movement website.
+name: mvp-labs-frontend
+description: Build and maintain the MVP Labs Next.js frontend with dark theme, animations, and responsive design. Use when creating pages, components, forms, or styling for the MVP Labs website.
 ---
 
-# BuildwithAiGiri Next.js Frontend
+# MVP Labs Next.js Frontend
 
 ## Tech Stack
 

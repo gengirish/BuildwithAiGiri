@@ -1,11 +1,11 @@
 ---
 name: agentmail
-description: Build email automation using AgentMail API for BuildwithAiGiri. Use when creating email notifications, sending submission confirmations, setting up webhooks, or integrating email into the idea submission workflow.
+description: Build email automation using AgentMail API for MVP Labs. Use when creating email notifications, sending submission confirmations, setting up webhooks, or integrating email into the idea submission workflow.
 ---
 
-# AgentMail - Email Integration for BuildwithAiGiri
+# AgentMail - Email Integration for MVP Labs
 
-AgentMail is an API-first email platform for AI agents. Used in BuildwithAiGiri for transactional emails: submission confirmations, status updates, and call reminders.
+AgentMail is an API-first email platform for AI agents. Used in MVP Labs for transactional emails: submission confirmations, status updates, and call reminders.
 
 ## Quick Start
 
@@ -28,24 +28,24 @@ const client = new AgentMailClient(); // Uses AGENTMAIL_API_KEY from environment
 ```typescript
 const inbox = await client.inboxes.create({
   username: "hello",
-  clientId: "buildwithaigiri-hello",
+  clientId: "mvplabs-hello",
 });
 
 await client.inboxes.messages.send(inbox.inboxId, {
   to: ["founder@example.com"],
   subject: "We received your idea!",
-  text: "Thanks for submitting your idea to BuildwithAiGiri.",
-  html: "<p>Thanks for submitting your idea to <strong>BuildwithAiGiri</strong>.</p>",
+  text: "Thanks for submitting your idea to MVP Labs.",
+  html: "<p>Thanks for submitting your idea to <strong>MVP Labs</strong>.</p>",
   labels: ["submission-confirmation"],
 });
 ```
 
-## BuildwithAiGiri Inboxes
+## MVP Labs Inboxes
 
 | Alias | Address | Purpose |
 |-------|---------|---------|
-| `hello` | `hello@buildwithaigiri.com` | Submission confirmations, general communication |
-| `noreply` | `noreply@buildwithaigiri.com` | Status updates, automated notifications |
+| `hello` | `hello@mvplabs.intelliforge.tech` | Submission confirmations, general communication |
+| `noreply` | `noreply@mvplabs.intelliforge.tech` | Status updates, automated notifications |
 
 ## Email Triggers
 
@@ -74,8 +74,8 @@ export async function sendSubmissionConfirmation(data: {
   await client.inboxes.messages.send(HELLO_INBOX, {
     to: [data.email],
     subject: `We received your idea: ${data.idea_title}`,
-    text: `Hi ${data.full_name},\n\nThanks for submitting "${data.idea_title}" to BuildwithAiGiri!\n\nWe'll review your idea and get back to you within 48 hours. If selected, we'll invite you to book a 1-hour brainstorming call.\n\nStay tuned!\n- BuildwithAiGiri`,
-    html: `<p>Hi ${data.full_name},</p><p>Thanks for submitting <strong>"${data.idea_title}"</strong> to BuildwithAiGiri!</p><p>We'll review your idea and get back to you within 48 hours.</p>`,
+    text: `Hi ${data.full_name},\n\nThanks for submitting "${data.idea_title}" to MVP Labs!\n\nWe'll review your idea and get back to you within 48 hours. If selected, we'll invite you to book a 1-hour brainstorming call.\n\nStay tuned!\n- MVP Labs`,
+    html: `<p>Hi ${data.full_name},</p><p>Thanks for submitting <strong>"${data.idea_title}"</strong> to MVP Labs!</p><p>We'll review your idea and get back to you within 48 hours.</p>`,
     labels: ["submission-confirmation"],
   });
 }
@@ -95,7 +95,7 @@ export async function sendStatusUpdate(data: {
   await client.inboxes.messages.send(HELLO_INBOX, {
     to: [data.email],
     subject: `Update on "${data.idea_title}"`,
-    text: `Hi ${data.full_name},\n\n${statusMessages[data.status] || "Status updated."}\n\n- BuildwithAiGiri`,
+    text: `Hi ${data.full_name},\n\n${statusMessages[data.status] || "Status updated."}\n\n- MVP Labs`,
     labels: ["status-update"],
   });
 }

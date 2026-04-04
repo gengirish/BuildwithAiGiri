@@ -5,7 +5,7 @@ description: Leverage specialized AI agent personalities from The Agency for wee
 
 # Agency Agents - AI Specialist Personas
 
-[The Agency](https://github.com/msitarzewski/agency-agents) is a collection of 55+ specialized AI agent personalities. Each agent has deep expertise, a unique voice, and proven workflows. Use them during BuildwithAiGiri weekly builds to get specialized guidance.
+[The Agency](https://github.com/msitarzewski/agency-agents) is a collection of 55+ specialized AI agent personalities. Each agent has deep expertise, a unique voice, and proven workflows. Use them during MVP Labs weekly builds to get specialized guidance.
 
 ## How to Use
 

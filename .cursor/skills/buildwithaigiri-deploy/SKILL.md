@@ -1,9 +1,9 @@
 ---
-name: buildwithaigiri-deploy
-description: Deploy the BuildwithAiGiri website to Vercel with Supabase backend. Use when deploying, configuring environment variables, setting up CI/CD, managing domains, or troubleshooting deployment issues.
+name: mvp-labs-deploy
+description: Deploy the MVP Labs website to Vercel with Supabase backend. Use when deploying, configuring environment variables, setting up CI/CD, managing domains, or troubleshooting deployment issues.
 ---
 
-# BuildwithAiGiri Deployment
+# MVP Labs Deployment
 
 ## Architecture
 
@@ -19,7 +19,7 @@ description: Deploy the BuildwithAiGiri website to Vercel with Supabase backend.
 
 | Service | Platform | URL |
 |---------|----------|-----|
-| Website | Vercel | `https://buildwithaigiri.com` |
+| Website | Vercel | `https://mvplabs.intelliforge.tech` |
 | Database | Supabase | Supabase dashboard |
 | Calendar | Cal.com | Embedded widget |
 | Email | AgentMail | API-based |
@@ -44,7 +44,7 @@ NEXT_PUBLIC_SUPABASE_URL=https://xxx.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJ...
 SUPABASE_SERVICE_ROLE_KEY=eyJ...
 AGENTMAIL_API_KEY=am_...
-NEXT_PUBLIC_CAL_LINK=https://cal.com/yourname/buildwithaigiri
+NEXT_PUBLIC_CAL_LINK=https://cal.com/yourname/mvp-labs
 ```
 
 ## Vercel Setup

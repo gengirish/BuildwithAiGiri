@@ -7,7 +7,7 @@ description: Use GitHub Spec Kit for Spec-Driven Development during weekly MVP b
 
 [GitHub Spec Kit](https://github.com/github/spec-kit) is a toolkit for Spec-Driven Development where specifications are executable, directly generating working implementations rather than just guiding them.
 
-## Why Use Spec Kit for BuildwithAiGiri
+## Why Use Spec Kit for MVP Labs
 
 Each week's MVP build follows a disciplined process:
 1. Define what to build (from the brainstorming call)

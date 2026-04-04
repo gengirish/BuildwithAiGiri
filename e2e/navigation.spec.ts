@@ -38,7 +38,7 @@ test.describe("Navigation", () => {
     await page.goto("/submit");
     await page
       .getByRole("navigation")
-      .getByRole("link", { name: /BuildwithAi/i })
+      .getByRole("link", { name: /MVP Labs/i })
       .click();
     await expect(page).toHaveURL("/");
   });

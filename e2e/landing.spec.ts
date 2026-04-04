@@ -13,7 +13,7 @@ test.describe("Landing Page", () => {
   });
 
   test("should render the movement badge", async ({ page }) => {
-    await expect(page.getByText("The Movement Has Begun")).toBeVisible();
+    await expect(page.getByText("An IntelliForge AI Initiative")).toBeVisible();
   });
 
   test("should render week counter stats", async ({ page }) => {

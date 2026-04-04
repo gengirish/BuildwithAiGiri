@@ -1,9 +1,9 @@
 ---
-name: buildwithaigiri-playwright
-description: Write and run Playwright E2E tests for BuildwithAiGiri. Use when creating new E2E tests, debugging test failures, adding test coverage for new features, or running the test suite. Covers test structure, selector patterns, and form testing.
+name: mvp-labs-playwright
+description: Write and run Playwright E2E tests for MVP Labs. Use when creating new E2E tests, debugging test failures, adding test coverage for new features, or running the test suite. Covers test structure, selector patterns, and form testing.
 ---
 
-# BuildwithAiGiri Playwright E2E Testing
+# MVP Labs Playwright E2E Testing
 
 ## Quick Start
 

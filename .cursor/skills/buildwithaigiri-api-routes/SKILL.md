@@ -1,9 +1,9 @@
 ---
-name: buildwithaigiri-api-routes
-description: Guides creation of Next.js API routes following BuildwithAiGiri conventions. Use when adding new endpoints, creating API routes, or asking about the API structure, rate limiting, validation, or Supabase integration.
+name: mvp-labs-api-routes
+description: Guides creation of Next.js API routes following MVP Labs conventions. Use when adding new endpoints, creating API routes, or asking about the API structure, rate limiting, validation, or Supabase integration.
 ---
 
-# BuildwithAiGiri API Routes
+# MVP Labs API Routes
 
 ## Route Structure
 

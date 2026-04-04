@@ -73,7 +73,7 @@ By default, all tools are loaded. To limit to specific tools (reduces noise):
 }
 ```
 
-## Usage in BuildwithAiGiri
+## Usage in MVP Labs
 
 ### Sending Test Emails During Development
 
@@ -82,21 +82,21 @@ In Cursor chat, ask:
 ```
 Use the AgentMail MCP to send a test submission confirmation email
 to test@example.com with subject "We received your idea!" and body
-"Thanks for submitting your idea to BuildwithAiGiri."
+"Thanks for submitting your idea to MVP Labs."
 ```
 
 ### Checking Inbox for Replies
 
 ```
 Use AgentMail MCP to list the latest 5 messages in the
-hello@buildwithaigiri.com inbox.
+hello@mvplabs.intelliforge.tech inbox.
 ```
 
 ### Creating Project Inboxes
 
 ```
 Use AgentMail MCP to create a new inbox with username "hello"
-and client_id "buildwithaigiri-hello".
+and client_id "mvplabs-hello".
 ```
 
 ## Integration with agentmail Skill

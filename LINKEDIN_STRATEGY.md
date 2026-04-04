@@ -1,4 +1,4 @@
-# BuildwithAiGiri — LinkedIn Marketing Strategy
+# MVP Labs — LinkedIn Marketing Strategy
 
 **Goal:** Drive idea submissions via https://mvplabs.intelliforge.tech/submit
 **Profile:** https://www.linkedin.com/in/girish-b-hiremath/
@@ -47,7 +47,7 @@ founders, dreamers, first-time builders?"
 
 So here it is:
 
-🚀 BuildwithAiGiri
+🚀 MVP Labs
 
 → 25 ideas. 25 weeks. 25 MVPs.
 → One brainstorming call. One week of building.
@@ -79,7 +79,7 @@ Submit your idea → https://mvplabs.intelliforge.tech/submit
 
 Share this if you believe ideas deserve better than a graveyard. 🤝
 
-#BuildwithAiGiri #25MVPs25Weeks #BuildInPublic #Startup #MVP
+#MVPLabs #25MVPs25Weeks #BuildInPublic #Startup #MVP
 #OpenSource #AI #SaaS #Founders #TechForGood
 ```
 
@@ -116,7 +116,7 @@ One idea per week. Selected from submissions.
 
 No equity. No fees. No catch.
 
-I call it BuildwithAiGiri.
+I call it MVP Labs.
 
 This isn't charity. This is selfishness disguised as generosity.
 
@@ -127,7 +127,7 @@ Week 0 is open. Submissions are live.
 
 🔗 https://mvplabs.intelliforge.tech/submit
 
-#BuildwithAiGiri #MVP #Startup #BuildInPublic #SaaS
+#MVPLabs #MVP #Startup #BuildInPublic #SaaS
 ```
 
 ### Post 3 — "What Makes a Great Submission" (Day 5)
@@ -162,14 +162,14 @@ This is your sign.
 
 🔗 https://mvplabs.intelliforge.tech/submit
 
-#BuildwithAiGiri #StartupIdeas #MVP #ProductDevelopment
+#MVPLabs #StartupIdeas #MVP #ProductDevelopment
 ```
 
 ### Post 4 — Social Proof / Numbers Update (Day 7)
 Format: Text + screenshot of the progress bar from the site
 
 ```
-BuildwithAiGiri — Week 0 update:
+MVP Labs — Week 0 update:
 
 📬 [X] ideas submitted
 🌍 From [Y] countries
@@ -187,7 +187,7 @@ for Week 1 on [date].
 
 🔗 https://mvplabs.intelliforge.tech/submit
 
-#BuildwithAiGiri #BuildInPublic
+#MVPLabs #BuildInPublic
 ```
 
 ---
@@ -201,7 +201,7 @@ Reveal the selected idea (with collaborator's permission).
 Tag the collaborator. Show the 1-hour brainstorm summary.
 
 ```
-BuildwithAiGiri — Week [X] of 25
+MVP Labs — Week [X] of 25
 
 This week I'm building: [IDEA NAME]
 
@@ -212,7 +212,7 @@ The scope: [3-5 bullet features]
 
 Day 1 starts now. Updates all week.
 
-#BuildwithAiGiri #Week[X] #BuildInPublic
+#MVPLabs #Week[X] #BuildInPublic
 ```
 
 ### Wednesday — Mid-Week Progress
@@ -220,7 +220,7 @@ Show real screenshots, code snippets, architecture decisions.
 Be vulnerable about challenges.
 
 ```
-BuildwithAiGiri Week [X] — Day 3
+MVP Labs Week [X] — Day 3
 
 What's working:
 ✅ [Feature 1] — shipped
@@ -233,7 +233,7 @@ Screenshot of the current state ↓
 
 The ugly middle is where the magic happens.
 
-#BuildwithAiGiri #BuildInPublic
+#MVPLabs #BuildInPublic
 ```
 
 ### Friday — Ship Day
@@ -241,7 +241,7 @@ The big reveal. Demo video or screenshots.
 Tag collaborator. Link to showcase.
 
 ```
-BuildwithAiGiri Week [X] — SHIPPED 🚀
+MVP Labs Week [X] — SHIPPED 🚀
 
 [IDEA NAME] is live.
 
@@ -260,7 +260,7 @@ Code: Handed over to @[Name]'s team
 
 [X] weeks down. [25-X] to go.
 
-#BuildwithAiGiri #MVP #Shipped
+#MVPLabs #MVP #Shipped
 ```
 
 ### Weekend — Reflection / Lessons Learned
@@ -286,7 +286,7 @@ That's the power of shipping fast.
 Week [X+1] submissions are open →
 https://mvplabs.intelliforge.tech/submit
 
-#BuildwithAiGiri #LessonsLearned #StartupLessons
+#MVPLabs #LessonsLearned #StartupLessons
 ```
 
 ### Bonus — Collaborator Testimonial (when available)
@@ -306,24 +306,24 @@ Post as a simple text + their headshot.
 ### 2. Comment Strategy (15 min/day)
 - Comment on 5 startup/founder posts daily
 - Add genuine value, not "great post!"
-- Naturally mention BuildwithAiGiri when relevant
+- Naturally mention MVP Labs when relevant
 - Target posts from: Y Combinator, Indie Hackers, SaaS founders, tech VCs
 
 ### 3. Cross-Pollination
 - **Twitter/X:** Mirror key posts (launch, ship days, lessons learned)
-- **GitHub:** Star/pin the BuildwithAiGiri repo, link from profile README
+- **GitHub:** Star/pin the MVP Labs repo, link from profile README
 - **Dev.to / Hashnode:** Write technical deep-dives on each MVP's architecture
 - **Product Hunt:** Launch a "collection" once you have 5+ MVPs shipped
 
 ### 4. LinkedIn Newsletter (Optional, High Impact)
-- Title: "BuildwithAiGiri Weekly"
+- Title: "MVP Labs Weekly"
 - Publish every Saturday
 - Content: Week recap, behind-the-scenes, next week's teaser
 - LinkedIn newsletters get push notifications to subscribers — massive reach
 
 ### 5. Hashtag Strategy
 Primary (every post):
-- `#BuildwithAiGiri` (your branded tag — track it)
+- `#MVPLabs` (your branded tag — track it)
 - `#BuildInPublic`
 
 Secondary (rotate):
@@ -343,7 +343,7 @@ Hey [Name],
 
 Saw your post about [topic]. Resonated with me.
 
-I'm running a project called BuildwithAiGiri — I build
+I'm running a project called MVP Labs — I build
 one free MVP per week for 25 weeks. No cost, no equity.
 
 If you or someone you know has an idea that needs
@@ -385,11 +385,11 @@ Either way, great content. Keep shipping. 🙌
 
 ## Quick Wins (Do This Week)
 
-- [ ] Update LinkedIn headline to: `Software Architect | Building 25 Free MVPs in 25 Weeks | BuildwithAiGiri`
+- [ ] Update LinkedIn headline to: `Software Architect | Building 25 Free MVPs in 25 Weeks | MVP Labs`
 - [ ] Update LinkedIn banner image to match OG image branding
-- [ ] Add BuildwithAiGiri link to LinkedIn "Featured" section
+- [ ] Add MVP Labs link to LinkedIn "Featured" section
 - [ ] Add the launch post to "Featured" section
-- [ ] Update "About" section to mention BuildwithAiGiri
+- [ ] Update "About" section to mention MVP Labs
 - [ ] Post #2 (origin story / "why free") within 48 hours
 - [ ] Engage with 10 comments on founder/startup posts today
 - [ ] Send 5 targeted DMs to founders who'd benefit
@@ -446,7 +446,7 @@ I came across [your LinkedIn post about X / your product on Indie Hackers / your
 
 I'm Girish Hiremath — a software architect with 14+ years of experience building enterprise systems, SaaS platforms, and AI-powered apps.
 
-I'm running a project called BuildwithAiGiri where I build one free MVP per week for 25 consecutive weeks. No fees, no equity, no strings attached. Just a 1-hour brainstorming call, then I build for a week and hand over everything — code, docs, deployment.
+I'm running a project called MVP Labs where I build one free MVP per week for 25 consecutive weeks. No fees, no equity, no strings attached. Just a 1-hour brainstorming call, then I build for a week and hand over everything — code, docs, deployment.
 
 I think [their idea / problem space] could be a strong fit for one of the weekly slots.
 
@@ -462,7 +462,7 @@ Or just reply to this email and tell me about your idea — happy to chat.
 
 Best,
 Girish Hiremath
-Software Architect · BuildwithAiGiri
+Software Architect · MVP Labs
 https://mvplabs.intelliforge.tech
 https://www.linkedin.com/in/girish-b-hiremath/
 ```
@@ -509,7 +509,7 @@ Hi [First Name],
 
 I know what it's like to have an idea that won't leave you alone — but not have the technical skills (or budget) to bring it to life.
 
-That's exactly why I started BuildwithAiGiri.
+That's exactly why I started MVP Labs.
 
 I'm a software architect with 14+ years of experience, and I'm spending the next 25 weeks building one free MVP per week for founders, creators, and problem-solvers like you.
 
@@ -542,7 +542,7 @@ Hey [First Name],
 
 Hope you're doing well. Quick one —
 
-I've started a project called BuildwithAiGiri where I'm building 25 free MVPs in 25 weeks for founders and builders. Full code handover, no cost, no equity.
+I've started a project called MVP Labs where I'm building 25 free MVPs in 25 weeks for founders and builders. Full code handover, no cost, no equity.
 
 I'm not emailing to pitch you (unless you have a secret idea you haven't told anyone about 😉).
 
@@ -592,7 +592,7 @@ Either way, wishing you the best with [their project / company / idea].
 ```
 Hi [Community Manager / Accelerator Name],
 
-I'm Girish Hiremath, a software architect running a project called BuildwithAiGiri — I'm building 25 free MVPs in 25 weeks for founders and builders.
+I'm Girish Hiremath, a software architect running a project called MVP Labs — I'm building 25 free MVPs in 25 weeks for founders and builders.
 
 The format:
 1. Founder submits an idea (3-minute form)
@@ -712,7 +712,7 @@ That's it.
 
 So I'm removing the bottleneck entirely.
 
-BuildwithAiGiri: 25 MVPs. 25 weeks.
+MVP Labs: 25 MVPs. 25 weeks.
 One idea per week. Built for free.
 Full code handover. No equity. No catch.
 
@@ -729,7 +729,7 @@ in Notion docs. Let's break it.
 What idea have you been sitting on
 because you couldn't find someone to build it?
 
-#BuildwithAiGiri #Startup #MVP #BuildInPublic #Founders
+#MVPLabs #Startup #MVP #BuildInPublic #Founders
 ```
 
 ---
@@ -771,7 +771,7 @@ I developed a framework:
 → Day 6: Ship it ugly but functional
 → Day 7: Put it in front of real users
 
-That's exactly what I'm doing with BuildwithAiGiri.
+That's exactly what I'm doing with MVP Labs.
 
 25 MVPs in 25 weeks.
 Each one scoped to the minimum that proves the idea works.
@@ -790,14 +790,14 @@ to startup speed. For free.
 What's the one feature your idea absolutely
 cannot launch without?
 
-#BuildwithAiGiri #MVP #ProductDevelopment #BuildInPublic #StartupLessons
+#MVPLabs #MVP #ProductDevelopment #BuildInPublic #StartupLessons
 ```
 
 ---
 
 ### Structure 3: Market Validation
 
-**Objective:** Awareness — position BuildwithAiGiri within the AI-builds-faster trend
+**Objective:** Awareness — position MVP Labs within the AI-builds-faster trend
 **Audience:** Founders, operators, tech leaders
 **Core insight:** AI didn't replace developers — it made one architect 25x more productive
 **Evidence:** AI + 14 years of architecture patterns = 1 MVP/week
@@ -835,7 +835,7 @@ Build one production-ready MVP every single week.
 For 25 consecutive weeks.
 For free.
 
-BuildwithAiGiri isn't a charity project.
+MVP Labs isn't a charity project.
 It's a proof of concept for a new era:
 
 When deep experience meets AI tooling,
@@ -849,7 +849,7 @@ I'll handle the "can."
 
 → https://mvplabs.intelliforge.tech/submit
 
-#BuildwithAiGiri #AI #BuildInPublic #SaaS #MVP #FutureOfWork #SoftwareEngineering
+#MVPLabs #AI #BuildInPublic #SaaS #MVP #FutureOfWork #SoftwareEngineering
 ```
 
 ---
@@ -862,7 +862,7 @@ I'll handle the "can."
 **Evidence:** Previous submissions count, selection criteria
 
 ```
-BuildwithAiGiri Week 1 — slot is open.
+MVP Labs Week 1 — slot is open.
 
 Here's what that means:
 
@@ -900,7 +900,7 @@ But each week is first come, first reviewed.
 
 → https://mvplabs.intelliforge.tech/submit
 
-#BuildwithAiGiri #MVP #Startup #BuildInPublic #FreeForFounders
+#MVPLabs #MVP #Startup #BuildInPublic #FreeForFounders
 ```
 
 ---
@@ -913,7 +913,7 @@ But each week is first come, first reviewed.
 **Evidence:** Real metrics from the actual build
 
 ```
-BuildwithAiGiri Week 1 — the honest build log.
+MVP Labs Week 1 — the honest build log.
 
 Monday:
 → 1-hour call with [Collaborator Name]
@@ -957,7 +957,7 @@ Your idea could be the next build log.
 
 → https://mvplabs.intelliforge.tech/submit
 
-#BuildwithAiGiri #BuildInPublic #ShipIt #MVP #Week1
+#MVPLabs #BuildInPublic #ShipIt #MVP #Week1
 ```
 
 ---

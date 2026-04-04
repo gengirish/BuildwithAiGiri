@@ -1,6 +1,6 @@
 ---
 name: automaker
-description: Use Automaker for Kanban-based AI agent orchestration during weekly MVP builds. Use when setting up Automaker, creating feature cards, managing AI agent execution, or orchestrating multi-agent development workflows for BuildwithAiGiri buildathon weeks.
+description: Use Automaker for Kanban-based AI agent orchestration during weekly MVP builds. Use when setting up Automaker, creating feature cards, managing AI agent execution, or orchestrating multi-agent development workflows for MVP Labs buildathon weeks.
 ---
 
 # Automaker - AI Development Studio
@@ -79,7 +79,7 @@ Each feature executes in an isolated git worktree:
 
 ## Weekly Build Workflow with Automaker
 
-For each week of the 25-week BuildwithAiGiri buildathon:
+For each week of the 25-week MVP Labs buildathon:
 
 ### Monday (after brainstorming call)
 

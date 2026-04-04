@@ -1,13 +1,13 @@
 ---
-name: buildwithaigiri-project
-description: Provides architecture knowledge for the BuildwithAiGiri website. Use when exploring the codebase, adding features, debugging, or asking about project structure, tech stack, conventions, database schema, or design system.
+name: mvp-labs-project
+description: Provides architecture knowledge for the MVP Labs website. Use when exploring the codebase, adding features, debugging, or asking about project structure, tech stack, conventions, database schema, or design system.
 ---
 
-# BuildwithAiGiri - Project Architecture
+# MVP Labs (by IntelliForge AI) - Project Architecture
 
 ## Project Context
 
-BuildwithAiGiri is a movement website where an experienced architect builds 25 software MVPs in 25 weeks for free, collaborating with founders, CTOs, and idea holders. The site collects idea submissions, facilitates brainstorming call bookings, and showcases completed projects.
+MVP Labs is IntelliForge AI's initiative where a team with 14+ years of enterprise experience builds 25 software MVPs in 25 weeks for free, collaborating with founders, CTOs, and idea holders. The site collects idea submissions, facilitates brainstorming call bookings, and showcases completed projects.
 
 ## Tech Stack
 
