@@ -106,6 +106,7 @@ CREATE TABLE submissions (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   full_name TEXT NOT NULL,
   email TEXT NOT NULL,
+  phone TEXT,
   role TEXT,
   company TEXT,
   idea_title TEXT NOT NULL,

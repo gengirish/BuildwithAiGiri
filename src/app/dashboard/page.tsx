@@ -149,6 +149,7 @@ function SubmissionRow({
               <div className="grid gap-3 sm:grid-cols-2">
                 <DetailField label="Role" value={submission.role} />
                 <DetailField label="Company" value={submission.company} />
+                <DetailField label="Phone" value={submission.phone ?? null} />
                 <DetailField
                   label="Target Audience"
                   value={submission.target_audience}

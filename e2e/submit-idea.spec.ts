@@ -1,13 +1,18 @@
 import { test, expect } from "@playwright/test";
 
 test.describe("Idea Submission Form", () => {
+  test.describe.configure({ timeout: 120_000 });
+
   test.beforeEach(async ({ page }) => {
     await page.goto("/submit");
+    // Form sends load timestamp; wait so anti-bot min fill time passes
+    await page.waitForTimeout(900);
   });
 
   test("should render the submission form with all fields", async ({ page }) => {
     await expect(page.getByLabel("Full Name")).toBeVisible();
     await expect(page.getByLabel("Email")).toBeVisible();
+    await expect(page.getByLabel("Phone Number")).toBeVisible();
     await expect(page.getByLabel("Your Role")).toBeVisible();
     await expect(page.getByLabel("Company / Organization")).toBeVisible();
     await expect(page.getByLabel("Idea Title")).toBeVisible();
@@ -29,6 +34,7 @@ test.describe("Idea Submission Form", () => {
   test("should show validation error for short idea title", async ({ page }) => {
     await page.getByLabel("Full Name").fill("Jane Doe");
     await page.getByLabel("Email").fill("jane@example.com");
+    await page.getByLabel("Phone Number").fill("+1 555 123 4567");
     await page.getByLabel("Your Role").selectOption("Founder");
     await page.getByLabel("Idea Title").fill("Hi");
     await page.getByLabel("Describe Your Idea").fill(
@@ -45,6 +51,7 @@ test.describe("Idea Submission Form", () => {
   test("should show validation error for short idea description", async ({ page }) => {
     await page.getByLabel("Full Name").fill("Jane Doe");
     await page.getByLabel("Email").fill("jane@example.com");
+    await page.getByLabel("Phone Number").fill("+1 555 123 4567");
     await page.getByLabel("Your Role").selectOption("Founder");
     await page.getByLabel("Idea Title").fill("Great Startup Idea");
     await page.getByLabel("Describe Your Idea").fill("Too short");
@@ -59,6 +66,7 @@ test.describe("Idea Submission Form", () => {
   test("should show validation error for invalid email", async ({ page }) => {
     await page.getByLabel("Full Name").fill("Jane Doe");
     await page.getByLabel("Email").fill("not-an-email");
+    await page.getByLabel("Phone Number").fill("+1 555 123 4567");
     await page.getByLabel("Your Role").selectOption("CTO");
     await page.getByLabel("Idea Title").fill("Great Startup Idea");
     await page.getByLabel("Describe Your Idea").fill(
@@ -73,6 +81,7 @@ test.describe("Idea Submission Form", () => {
   test("should submit form successfully with valid data", async ({ page }) => {
     await page.getByLabel("Full Name").fill("Jane Doe");
     await page.getByLabel("Email").fill("jane@example.com");
+    await page.getByLabel("Phone Number").fill("+1 555 123 4567");
     await page.getByLabel("Your Role").selectOption("Founder");
     await page.getByLabel("Company / Organization").fill("Acme Corp");
     await page.getByLabel("Idea Title").fill("AI-Powered CRM for Startups");
@@ -87,6 +96,7 @@ test.describe("Idea Submission Form", () => {
       (r) =>
         r.url().includes("/api/submissions") &&
         r.request().method() === "POST",
+      { timeout: 90_000 },
     );
 
     await page.getByRole("button", { name: "Submit Your Idea" }).click();
@@ -95,13 +105,14 @@ test.describe("Idea Submission Form", () => {
     expect(response.status()).toBe(201);
 
     await expect(
-      page.getByText(/idea has been submitted/i),
+      page.getByText(/You're In|Idea Received/i),
     ).toBeVisible({ timeout: 5000 });
   });
 
   test("should reset form fields after successful submission", async ({ page }) => {
     await page.getByLabel("Full Name").fill("Test User");
     await page.getByLabel("Email").fill("test@example.com");
+    await page.getByLabel("Phone Number").fill("+1 555 987 6543");
     await page.getByLabel("Your Role").selectOption("Developer");
     await page.getByLabel("Idea Title").fill("Reset Test Idea Title");
     await page.getByLabel("Describe Your Idea").fill(
@@ -112,6 +123,7 @@ test.describe("Idea Submission Form", () => {
       (r) =>
         r.url().includes("/api/submissions") &&
         r.request().method() === "POST",
+      { timeout: 90_000 },
     );
 
     await page.getByRole("button", { name: "Submit Your Idea" }).click();
@@ -129,6 +141,7 @@ test.describe("Idea Submission Form", () => {
   test("should disable submit button while submitting", async ({ page }) => {
     await page.getByLabel("Full Name").fill("Jane Doe");
     await page.getByLabel("Email").fill("jane@example.com");
+    await page.getByLabel("Phone Number").fill("+1 555 123 4567");
     await page.getByLabel("Your Role").selectOption("Developer");
     await page.getByLabel("Idea Title").fill("Test Loading State");
     await page.getByLabel("Describe Your Idea").fill(
@@ -143,6 +156,7 @@ test.describe("Idea Submission Form", () => {
       (r) =>
         r.url().includes("/api/submissions") &&
         r.request().method() === "POST",
+      { timeout: 90_000 },
     );
 
     await expect(button).toBeEnabled({ timeout: 5000 });

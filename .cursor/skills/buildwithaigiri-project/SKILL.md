@@ -72,6 +72,7 @@ src/
 | id | uuid (PK) | `gen_random_uuid()` |
 | full_name | text | required |
 | email | text | required |
+| phone | text | optional (add column if missing — see repo `supabase/migrations/`) |
 | role | text | Founder, CTO, CEO, etc. |
 | company | text | nullable |
 | idea_title | text | required |

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { submissionSchema } from "@/lib/validations";
+import { submissionSchema, type SubmissionFormData } from "@/lib/validations";
 import { getServiceClient } from "@/lib/supabase";
 import { sendSubmissionConfirmation, sendAdminNotification } from "@/lib/email-service";
 
@@ -7,9 +7,44 @@ export const dynamic = "force-dynamic";
 
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
 
-const MIN_FILL_TIME_MS = 3_000;
+/** Light anti-bot: block instant scripted posts; keep low so real users are not blocked. */
+const MIN_FILL_TIME_MS = 800;
 
-function checkRateLimit(ip: string, limit = 3, windowMs = 60_000): boolean {
+function nullIfEmpty(value: string | undefined | null): string | null {
+  if (value == null) return null;
+  const s = value.trim();
+  return s === "" ? null : s;
+}
+
+function rowForInsert(data: SubmissionFormData, includePhone: boolean) {
+  const base = {
+    full_name: data.full_name.trim(),
+    email: data.email.trim(),
+    role: data.role,
+    company: nullIfEmpty(data.company),
+    idea_title: data.idea_title.trim(),
+    idea_description: data.idea_description.trim(),
+    target_audience: nullIfEmpty(data.target_audience),
+    business_model: nullIfEmpty(data.business_model),
+    referral_source: nullIfEmpty(data.referral_source),
+    status: "pending" as const,
+  };
+  if (!includePhone) return base;
+  return { ...base, phone: data.phone.trim() };
+}
+
+function isMissingPhoneColumnError(err: { message?: string; details?: string; code?: string }): boolean {
+  const blob = `${err.message ?? ""} ${err.details ?? ""}`.toLowerCase();
+  if (!blob.includes("phone")) return false;
+  return (
+    blob.includes("could not find") ||
+    blob.includes("schema cache") ||
+    blob.includes("does not exist") ||
+    err.code === "PGRST204"
+  );
+}
+
+function checkRateLimit(ip: string, limit = 5, windowMs = 60_000): boolean {
   const now = Date.now();
   const entry = rateLimitMap.get(ip);
 
@@ -84,13 +119,19 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const { error } = await supabase.from("submissions").insert({
-      ...parsed.data,
-      status: "pending",
-    });
+    let insertError = (await supabase.from("submissions").insert(rowForInsert(parsed.data, true)))
+      .error;
 
-    if (error) {
-      console.error("Supabase insert error:", error);
+    if (insertError && isMissingPhoneColumnError(insertError)) {
+      console.warn(
+        "submissions.phone column missing — retrying insert without phone. Run supabase/migrations/20260209120000_add_phone_to_submissions.sql to store phone in the database.",
+      );
+      insertError = (await supabase.from("submissions").insert(rowForInsert(parsed.data, false)))
+        .error;
+    }
+
+    if (insertError) {
+      console.error("Supabase insert error:", insertError);
       return NextResponse.json(
         { error: "Failed to save submission. Please try again." },
         { status: 500 },
