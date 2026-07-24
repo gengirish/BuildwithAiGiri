@@ -82,3 +82,19 @@ body {
   );
   background-size: 40px 40px;
 }
+
+/* Campus hub (/campus) — standalone light QR landing, opts out of the dark theme */
+body:has(.campus-root) {
+  background: #faf7f2;
+  color: #14110d;
+}
+
+.campus-root {
+  font-family:
+    system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+}
+
+.campus-heading {
+  font-family: var(--font-space), system-ui, sans-serif;
+  letter-spacing: -0.015em;
+}
