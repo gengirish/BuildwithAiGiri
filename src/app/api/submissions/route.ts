@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse, after } from "next/server";
 import { submissionSchema, type SubmissionFormData } from "@/lib/validations";
 import { getDb, isDatabaseUnreachableError } from "@/lib/db";
 import { sendSubmissionConfirmation, sendAdminNotification } from "@/lib/email-service";
@@ -16,17 +16,27 @@ function nullIfEmpty(value: string | undefined | null): string | null {
   return s === "" ? null : s;
 }
 
-/** Fire lead-capture emails without awaiting; a mail failure never fails the request. */
+/**
+ * Send lead-capture emails after the response is sent, via Next's `after()`.
+ * This keeps them off the request's critical path (no added user latency) while
+ * guaranteeing the serverless function stays alive until the emails actually
+ * finish — a bare fire-and-forget promise gets frozen/dropped once the response
+ * returns, so the AgentMail fetch never completes. A mail failure is logged and
+ * never fails the request.
+ */
 function dispatchLeadEmails(data: SubmissionFormData) {
-  sendSubmissionConfirmation({
-    email: data.email,
-    full_name: data.full_name,
-    idea_title: data.idea_title,
-  }).catch((err) => console.error("Email send failed:", err));
-
-  sendAdminNotification(data).catch((err) =>
-    console.error("Admin notification failed:", err),
-  );
+  after(async () => {
+    await Promise.allSettled([
+      sendSubmissionConfirmation({
+        email: data.email,
+        full_name: data.full_name,
+        idea_title: data.idea_title,
+      }).catch((err) => console.error("Email send failed:", err)),
+      sendAdminNotification(data).catch((err) =>
+        console.error("Admin notification failed:", err),
+      ),
+    ]);
+  });
 }
 
 function checkRateLimit(ip: string, limit = 5, windowMs = 60_000): boolean {
