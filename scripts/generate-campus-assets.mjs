@@ -71,8 +71,8 @@ function flyerHtml(qrDataUri) {
 </head>
 <body>
   <div class="kicker">IntelliForge × IIIT Dharwad · Campus Immersion 2026</div>
-  <h1>Scan to build with IntelliForge</h1>
-  <div class="sub">Building AI-native products. Pick your door.</div>
+  <h1>An invitation to collaborate</h1>
+  <div class="sub">Scan to build AI-native products with us — as a founder, a learner, or a mentor.</div>
 
   <div class="qr-wrap"><img src="${qrDataUri}" alt="QR code to ${TARGET}" /></div>
   <div class="qr-url">mvplabs.intelliforge.tech/campus</div>

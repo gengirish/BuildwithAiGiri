@@ -27,9 +27,11 @@ test.describe("Campus hub (/campus)", () => {
 
   test("renders the header and all three tiles", async ({ page }) => {
     await expect(
-      page.getByRole("heading", { name: /IntelliForge . IIIT Dharwad/ }),
+      page.getByRole("heading", { name: /An invitation to collaborate/i }),
     ).toBeVisible();
-    await expect(page.getByText("Building AI-native products. Pick your door.")).toBeVisible();
+    await expect(
+      page.getByText(/We're building AI-native products with founders/),
+    ).toBeVisible();
 
     await expect(page.getByRole("heading", { name: /Have a product idea/ })).toBeVisible();
     await expect(page.getByRole("heading", { name: /Want hands-on AI skills/ })).toBeVisible();

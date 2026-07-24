@@ -8,12 +8,13 @@ function withUtm(url: string): string {
 }
 
 export const metadata: Metadata = {
-  title: "IntelliForge × IIIT Dharwad — Pick your door",
+  title: "IntelliForge × IIIT Dharwad — An Invitation to Collaborate",
   description:
-    "Submit a product idea, upskill in AI, or mentor our cohorts. IntelliForge Digital Services at the IIIT Dharwad Campus Immersion Program.",
+    "An invitation to collaborate with IntelliForge — submit a product idea, upskill in AI, or mentor our cohorts. At the IIIT Dharwad Campus Immersion Program.",
   openGraph: {
-    title: "IntelliForge × IIIT Dharwad",
-    description: "Building AI-native products. Pick your door.",
+    title: "IntelliForge × IIIT Dharwad — An Invitation to Collaborate",
+    description:
+      "We're building AI-native products with founders, learners, and faculty. Choose how you'd like to get involved.",
     url: "https://mvplabs.intelliforge.tech/campus",
     type: "website",
   },
@@ -73,13 +74,15 @@ export default function CampusPage() {
       <div className="mx-auto w-full max-w-[560px] px-5 py-10 sm:py-14">
         <header className="mb-9">
           <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#7a7268]">
-            IntelliForge Digital Services
+            IntelliForge <span className="text-[#06b6d4]">×</span> IIIT Dharwad
+            {" · "}Campus Immersion 2026
           </p>
           <h1 className="campus-heading mt-2 text-[26px] leading-tight font-bold sm:text-[32px]">
-            IntelliForge <span className="text-[#06b6d4]">×</span> IIIT Dharwad
+            An invitation to collaborate
           </h1>
           <p className="mt-2 text-[15px] leading-relaxed text-[#5c554c]">
-            Building AI-native products. Pick your door.
+            We&apos;re building AI-native products with founders, learners, and
+            faculty. Choose how you&apos;d like to get involved.
           </p>
         </header>
 
