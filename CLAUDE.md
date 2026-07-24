@@ -37,13 +37,16 @@ Local setup: `cp .env.example .env.local` and fill in keys. Everything degrades 
 
 ## Architecture
 
-**Stack**: Next.js 16 App Router, React 19, TypeScript (strict), Tailwind v4 (no config file — tokens live in `src/app/globals.css`), Supabase (Postgres), Google APIs (Gmail + Calendar), AgentMail, Playwright.
+**Stack**: Next.js 16 App Router, React 19, TypeScript (strict), Tailwind v4 (no config file — tokens live in `src/app/globals.css`), Neon Postgres (via `@neondatabase/serverless`, queried with tagged-template SQL), Google APIs (Gmail + Calendar), AgentMail, Playwright.
+
+> **DB note:** The project used Supabase (PostgREST via `@supabase/supabase-js`) until Jul 2026, when the free-tier Supabase project was deleted (DNS returned NXDOMAIN → every query threw `getaddrinfo ENOTFOUND`, hard-500ing `/api/submissions`). It was migrated to Neon Postgres. Data access is now raw SQL through `src/lib/db.ts` — there is no PostgREST/`.from()` query builder anymore.
 
 ### Optional-integration pattern
 
-Every external integration is *optional at runtime*. `src/lib/supabase.ts` and `src/lib/google.ts` return `null` when their env vars are absent instead of throwing, and callers branch on `null`:
+Every external integration is *optional at runtime*. `src/lib/db.ts` and `src/lib/google.ts` return `null` when their env vars are absent instead of throwing, and callers branch on `null`:
 
-- `getServiceClient()` returns `null` → `/api/submissions` POST logs the submission and still returns 201; GET returns `[]`.
+- `getDb()` (reads `DATABASE_URL`) returns `null` → `/api/submissions` POST logs the submission + emails the lead and still returns 201; GET returns `[]`.
+- Even when `getDb()` returns a client, an *unreachable* DB (paused/deleted host: `fetch failed` / `ENOTFOUND` / connection errors, detected by `isDatabaseUnreachableError`) is caught in the POST route and degrades to the same log + email capture rather than dropping the lead with a 500. Genuine query errors still return 500.
 - `getGmail()` / `getCalendar()` return `null` → email falls back to AgentMail; calendar invite is skipped and approval email is sent without a Meet link.
 
 Preserve this when adding integrations — the site and the E2E suite must work with zero credentials configured.
@@ -64,13 +67,11 @@ All are `export const dynamic = "force-dynamic"`. Error shape is `{ error: strin
 
 The rate limiter is a module-level `Map`, so it is per-instance and resets on cold start — it is friction, not a real limit.
 
-### Phone-column resilience
+### Migrations
 
-`submissions.phone` may not exist in an older deployed database. The POST route inserts with `phone`, detects a missing-column error (`isMissingPhoneColumnError`, incl. PostgREST `PGRST204`/schema-cache wording), and retries the insert without it rather than failing the user. Do not remove this until every environment has the column.
+`migrations/` (Alembic, models in `migrations/models.py`) is the source of truth for schema; point `DATABASE_URL` at Neon and run `alembic upgrade head`. The Neon tables were originally created from the DDL in `migrations/models.py` (both `submissions` and `projects`, phone column included). `supabase/migrations/*.sql` is legacy from the Supabase era and no longer used. Schema changes need the Alembic migration plus the matching TypeScript interface in `src/types/index.ts`.
 
-### Two migration paths
-
-`migrations/` (Alembic, models in `migrations/models.py`) is the source of truth for schema. `supabase/migrations/*.sql` holds idempotent hand-run SQL for the Supabase SQL Editor when Alembic can't be pointed at the DB. Schema changes generally need both, plus the matching TypeScript interface in `src/types/index.ts`.
+The `submissions.phone` column always exists in the Neon schema, so the old `isMissingPhoneColumnError` retry-without-phone hack was dropped in the Neon migration.
 
 Tables: `submissions` (status enum-as-text: `pending | reviewing | call_scheduled | selected | building | completed | declined`) and `projects` (`week_number` 1–25, `tech_stack text[]`).
 

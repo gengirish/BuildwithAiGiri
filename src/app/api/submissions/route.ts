@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { submissionSchema, type SubmissionFormData } from "@/lib/validations";
-import { getServiceClient } from "@/lib/supabase";
+import { getDb, isDatabaseUnreachableError } from "@/lib/db";
 import { sendSubmissionConfirmation, sendAdminNotification } from "@/lib/email-service";
 
 export const dynamic = "force-dynamic";
@@ -16,31 +16,16 @@ function nullIfEmpty(value: string | undefined | null): string | null {
   return s === "" ? null : s;
 }
 
-function rowForInsert(data: SubmissionFormData, includePhone: boolean) {
-  const base = {
-    full_name: data.full_name.trim(),
-    email: data.email.trim(),
-    role: data.role,
-    company: nullIfEmpty(data.company),
-    idea_title: data.idea_title.trim(),
-    idea_description: data.idea_description.trim(),
-    target_audience: nullIfEmpty(data.target_audience),
-    business_model: nullIfEmpty(data.business_model),
-    referral_source: nullIfEmpty(data.referral_source),
-    status: "pending" as const,
-  };
-  if (!includePhone) return base;
-  return { ...base, phone: data.phone.trim() };
-}
+/** Fire lead-capture emails without awaiting; a mail failure never fails the request. */
+function dispatchLeadEmails(data: SubmissionFormData) {
+  sendSubmissionConfirmation({
+    email: data.email,
+    full_name: data.full_name,
+    idea_title: data.idea_title,
+  }).catch((err) => console.error("Email send failed:", err));
 
-function isMissingPhoneColumnError(err: { message?: string; details?: string; code?: string }): boolean {
-  const blob = `${err.message ?? ""} ${err.details ?? ""}`.toLowerCase();
-  if (!blob.includes("phone")) return false;
-  return (
-    blob.includes("could not find") ||
-    blob.includes("schema cache") ||
-    blob.includes("does not exist") ||
-    err.code === "PGRST204"
+  sendAdminNotification(data).catch((err) =>
+    console.error("Admin notification failed:", err),
   );
 }
 
@@ -97,56 +82,52 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const supabase = getServiceClient();
+    const d = parsed.data;
+    const sql = getDb();
 
-    if (!supabase) {
-      console.warn("Supabase not configured — storing submission in logs only");
-      console.log("Submission received:", JSON.stringify(parsed.data, null, 2));
-
-      sendSubmissionConfirmation({
-        email: parsed.data.email,
-        full_name: parsed.data.full_name,
-        idea_title: parsed.data.idea_title,
-      }).catch((err) => console.error("Email send failed:", err));
-
-      sendAdminNotification(parsed.data).catch((err) =>
-        console.error("Admin notification failed:", err),
-      );
-
+    if (!sql) {
+      console.warn("DATABASE_URL not configured — storing submission in logs only");
+      console.log("Submission received:", JSON.stringify(d, null, 2));
+      dispatchLeadEmails(d);
       return NextResponse.json(
         { success: true, message: "Idea submitted successfully!" },
         { status: 201 },
       );
     }
 
-    let insertError = (await supabase.from("submissions").insert(rowForInsert(parsed.data, true)))
-      .error;
-
-    if (insertError && isMissingPhoneColumnError(insertError)) {
-      console.warn(
-        "submissions.phone column missing — retrying insert without phone. Run supabase/migrations/20260209120000_add_phone_to_submissions.sql to store phone in the database.",
-      );
-      insertError = (await supabase.from("submissions").insert(rowForInsert(parsed.data, false)))
-        .error;
-    }
-
-    if (insertError) {
-      console.error("Supabase insert error:", insertError);
+    try {
+      await sql`
+        INSERT INTO submissions (
+          full_name, email, phone, role, company, idea_title, idea_description,
+          target_audience, business_model, referral_source, status
+        ) VALUES (
+          ${d.full_name.trim()}, ${d.email.trim()}, ${d.phone.trim()}, ${d.role},
+          ${nullIfEmpty(d.company)}, ${d.idea_title.trim()}, ${d.idea_description.trim()},
+          ${nullIfEmpty(d.target_audience)}, ${nullIfEmpty(d.business_model)},
+          ${nullIfEmpty(d.referral_source)}, 'pending'
+        )
+      `;
+    } catch (err) {
+      if (isDatabaseUnreachableError(err)) {
+        // DB is down/unreachable (e.g. paused or deleted database). Don't drop
+        // the lead: capture it via email + logs and confirm to the user,
+        // matching the "no DB configured" degraded path above.
+        console.error("Database unreachable — capturing submission via email only:", err);
+        console.log("Submission received:", JSON.stringify(d, null, 2));
+        dispatchLeadEmails(d);
+        return NextResponse.json(
+          { success: true, message: "Idea submitted successfully!" },
+          { status: 201 },
+        );
+      }
+      console.error("Database insert error:", err);
       return NextResponse.json(
         { error: "Failed to save submission. Please try again." },
         { status: 500 },
       );
     }
 
-    sendSubmissionConfirmation({
-      email: parsed.data.email,
-      full_name: parsed.data.full_name,
-      idea_title: parsed.data.idea_title,
-    }).catch((err) => console.error("Email send failed:", err));
-
-    sendAdminNotification(parsed.data).catch((err) =>
-      console.error("Admin notification failed:", err),
-    );
+    dispatchLeadEmails(d);
 
     return NextResponse.json(
       { success: true, message: "Idea submitted successfully!" },
@@ -163,30 +144,18 @@ export async function POST(req: NextRequest) {
 
 export async function GET() {
   try {
-    const supabase = getServiceClient();
+    const sql = getDb();
 
-    if (!supabase) {
+    if (!sql) {
       return NextResponse.json([]);
     }
 
-    const { data, error } = await supabase
-      .from("submissions")
-      .select("*")
-      .order("created_at", { ascending: false });
-
-    if (error) {
-      console.error("Supabase fetch error:", error);
-      return NextResponse.json(
-        { error: "Failed to fetch submissions" },
-        { status: 500 },
-      );
-    }
-
+    const data = await sql`SELECT * FROM submissions ORDER BY created_at DESC`;
     return NextResponse.json(data);
   } catch (err) {
     console.error("Submissions GET error:", err);
     return NextResponse.json(
-      { error: "Internal server error" },
+      { error: "Failed to fetch submissions" },
       { status: 500 },
     );
   }

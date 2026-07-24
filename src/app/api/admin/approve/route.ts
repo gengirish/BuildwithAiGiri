@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getServiceClient } from "@/lib/supabase";
+import { getDb } from "@/lib/db";
 import { sendApprovalEmail } from "@/lib/email-service";
 import { createBrainstormInvite } from "@/lib/calendar-service";
+import type { Submission } from "@/types";
 
 export const dynamic = "force-dynamic";
 
@@ -21,21 +22,20 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const supabase = getServiceClient();
-    if (!supabase) {
+    const sql = getDb();
+    if (!sql) {
       return NextResponse.json(
         { error: "Database not configured" },
         { status: 500 },
       );
     }
 
-    const { data: submission, error: fetchError } = await supabase
-      .from("submissions")
-      .select("*")
-      .eq("id", submissionId)
-      .single();
+    const rows = (await sql`
+      SELECT * FROM submissions WHERE id = ${submissionId} LIMIT 1
+    `) as Submission[];
+    const submission = rows[0];
 
-    if (fetchError || !submission) {
+    if (!submission) {
       return NextResponse.json(
         { error: "Submission not found" },
         { status: 404 },
@@ -63,12 +63,9 @@ export async function POST(req: NextRequest) {
       eventStart: calendarResult?.start,
     });
 
-    const { error: updateError } = await supabase
-      .from("submissions")
-      .update({ status: "selected" })
-      .eq("id", submissionId);
-
-    if (updateError) {
+    try {
+      await sql`UPDATE submissions SET status = 'selected' WHERE id = ${submissionId}`;
+    } catch (updateError) {
       console.error("Status update failed:", updateError);
     }
 

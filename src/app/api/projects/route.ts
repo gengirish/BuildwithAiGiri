@@ -1,34 +1,22 @@
 import { NextResponse } from "next/server";
-import { getServiceClient } from "@/lib/supabase";
+import { getDb } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
 
 export async function GET() {
   try {
-    const supabase = getServiceClient();
+    const sql = getDb();
 
-    if (!supabase) {
+    if (!sql) {
       return NextResponse.json([]);
     }
 
-    const { data, error } = await supabase
-      .from("projects")
-      .select("*")
-      .order("week_number", { ascending: true });
-
-    if (error) {
-      console.error("Supabase fetch error:", error);
-      return NextResponse.json(
-        { error: "Failed to fetch projects" },
-        { status: 500 },
-      );
-    }
-
+    const data = await sql`SELECT * FROM projects ORDER BY week_number ASC`;
     return NextResponse.json(data);
   } catch (err) {
     console.error("Projects GET error:", err);
     return NextResponse.json(
-      { error: "Internal server error" },
+      { error: "Failed to fetch projects" },
       { status: 500 },
     );
   }
