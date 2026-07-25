@@ -54,7 +54,7 @@ const TILES: Tile[] = [
     blurb:
       "Guide our bootcamp cohorts and product teams. We already collaborate with faculty from KAHER.",
     cta: "Apply as a mentor",
-    href: withUtm("https://hrms.intelliforge.tech/mentors"),
+    href: withUtm("https://hrms.intelliforge.tech/mentors/apply"),
     accent: "amber",
   },
 ];

@@ -14,7 +14,7 @@ const CTAS = [
   },
   {
     name: "Apply as a mentor",
-    href: `https://hrms.intelliforge.tech/mentors?${UTM}`,
+    href: `https://hrms.intelliforge.tech/mentors/apply?${UTM}`,
   },
 ];
 
